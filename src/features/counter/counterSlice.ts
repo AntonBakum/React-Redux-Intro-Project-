@@ -47,7 +47,7 @@ export const counterSlice = createSlice({
     },
     multiplyValue: (state, action: PayloadAction<number>) => 
     {
-      state.value *= action.payload; 
+        state.value *= 2; // own thunk action which gets the value field from the state and multiplies it by 2
     }
   },
   // The `extraReducers` field lets the slice handle actions defined elsewhere,
