@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState, AppThunk } from '../../app/store';
-import { fetchCount } from './counterAPI';
+import { fetchCount, fetchMultiply } from './counterAPI';
 
 export interface CounterState {
   value: number;
@@ -25,10 +25,10 @@ export const incrementAsync = createAsyncThunk(
     return response.data;
   }
 );
-export const multiplyAsync = createAsyncThunk (
-  'counter/fetchCount', async (multiplyResult: number) =>
+export const multiplyAsync = createAsyncThunk ( //own thunk functions for async requests from the fake API
+  'counter/fetchMultiply', async (multiplyResult: number) =>
   {
-    const response = await fetchCount(multiplyResult);
+    const response = await fetchMultiply(multiplyResult);
     return response.data;
   }
 )
@@ -69,6 +69,17 @@ export const counterSlice = createSlice({
         state.value += action.payload;
       })
       .addCase(incrementAsync.rejected, (state) => {
+        state.status = 'failed';
+      });
+    builder.addCase(multiplyAsync.pending, (state) => {
+      state.status = 'loading';
+    })
+      .addCase(multiplyAsync.fulfilled, (state) =>
+        {
+            state.status = 'idle';
+            state.value *= 2;
+        })
+      .addCase(multiplyAsync.rejected, (state) => {
         state.status = 'failed';
       });
   },
