@@ -7,7 +7,7 @@ export interface CounterState {
   status: 'idle' | 'loading' | 'failed';
 }
 
-const initialState: CounterState = {
+const initialState: CounterState = { //початкове значення стану нашої аппки
   value: 0,
   status: 'idle',
 };
@@ -25,6 +25,13 @@ export const incrementAsync = createAsyncThunk(
     return response.data;
   }
 );
+export const multiplyAsync = createAsyncThunk (
+  'counter/fetchCount', async (multiplyResult: number) =>
+  {
+    const response = await fetchCount(multiplyResult);
+    return response.data;
+  }
+)
 
 export const counterSlice = createSlice({
   name: 'counter',
@@ -45,9 +52,9 @@ export const counterSlice = createSlice({
     incrementByAmount: (state, action: PayloadAction<number>) => {
       state.value += action.payload;
     },
-    multiplyValue: (state, action: PayloadAction<number>) => 
+    multiplyValue: (state) => 
     {
-        state.value *= 2; // own thunk action which gets the value field from the state and multiplies it by 2
+        state.value *= 2; // own  action which gets the value field from the state and multiplies it by 2
     }
   },
   // The `extraReducers` field lets the slice handle actions defined elsewhere,
@@ -84,10 +91,6 @@ export const incrementIfOdd =
       dispatch(incrementByAmount(amount));
     }
   };
-export const Multiply = 
-  (result: number): AppThunk =>
-  (dispatch) => {
-    dispatch(multiplyValue(result));
-  };
+
   
 export default counterSlice.reducer;
