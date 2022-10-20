@@ -71,18 +71,18 @@ export const counterSlice = createSlice({
       })
       .addCase(incrementAsync.rejected, (state) => {
         state.status = 'failed';
-      });
-    builder.addCase(multiplyAsync.pending, (state) => {
-      state.status = 'loading';
-    })
-      .addCase(multiplyAsync.fulfilled, (state) =>
+      })
+     .addCase(multiplyAsync.fulfilled, (state) =>
         {
             state.status = 'idle';
             state.value *= 2;
-        })
-      .addCase(multiplyAsync.rejected, (state) => {
-        state.status = 'failed';
-      });
+        });
+    builder.addMatcher(isPending(multiplyAsync), (state) => {
+      state.status = 'loading';
+    })
+    .addMatcher(isRejected(multiplyAsync), (state) => {
+      state.status = 'failed';
+    })
   },
 });
 
