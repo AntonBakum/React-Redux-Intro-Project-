@@ -71,17 +71,6 @@ export const counterSlice = createSlice({
       .addCase(incrementAsync.rejected, (state) => {
         state.status = 'failed';
       });
-    builder.addCase(multiplyAsync.pending, (state) => {
-      state.status = 'loading';
-    })
-      .addCase(multiplyAsync.fulfilled, (state) =>
-        {
-            state.status = 'idle';
-            state.value *= 2;
-        })
-      .addCase(multiplyAsync.rejected, (state) => {
-        state.status = 'failed';
-      });
   },
 });
 
