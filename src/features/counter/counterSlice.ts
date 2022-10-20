@@ -1,4 +1,5 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, PayloadAction, isRejected, isAnyOf,isPending } from '@reduxjs/toolkit';
+import { loadavg } from 'os';
 import { RootState, AppThunk } from '../../app/store';
 import { fetchCount, fetchMultiply } from './counterAPI';
 
@@ -71,17 +72,19 @@ export const counterSlice = createSlice({
       .addCase(incrementAsync.rejected, (state) => {
         state.status = 'failed';
       });
-    builder.addCase(multiplyAsync.pending, (state) => {
-      state.status = 'loading';
-    })
-      .addCase(multiplyAsync.fulfilled, (state) =>
+
+      builder.addCase(multiplyAsync.fulfilled, (state) =>
         {
             state.status = 'idle';
             state.value *= 2;
         })
-      .addCase(multiplyAsync.rejected, (state) => {
+      .addMatcher(isRejected(multiplyAsync), (state) => {
         state.status = 'failed';
-      });
+      })
+      .addMatcher(isPending(multiplyAsync), (state) => 
+      {
+        state.status = 'loading';
+      })
   },
 });
 
