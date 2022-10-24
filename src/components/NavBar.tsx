@@ -1,13 +1,12 @@
-import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 
 export default function NavBar()
 {
     return (
-        <Fragment>
+        <>
             <header>
-            <nav>
-                <ul>
+                <nav>
+                    <ul>
                         <li>
                             <Link to="/">Home </Link>        
                         </li>
@@ -20,6 +19,6 @@ export default function NavBar()
                     </ul>
                 </nav>
             </header>
-        </Fragment>
+        </>
     )
 }

@@ -1,9 +1,7 @@
-import React from "react";
-
 export default function PageOne()
 {
   return (
-    <div>
+    <>
         <h2>Welcome to the first page</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -13,6 +11,6 @@ export default function PageOne()
           Quam pellentesque nec nam aliquam sem. Aenean sed adipiscing diam donec adipiscing tristique.
           Amet justo donec enim diam vulputate ut. Pellentesque habitant morbi tristique senectus.
         </p>
-    </div>
+    </>
   )
 }
