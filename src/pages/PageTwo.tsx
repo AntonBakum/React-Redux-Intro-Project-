@@ -3,7 +3,7 @@ export default function PageTwo()
 {
     return (
         <>
-            <h2>Welcome to the second page</h2>
+            <h1>Welcome to the second page</h1>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                 In ornare quam viverra orci. Lacus sed viverra tellus in hac habitasse. 

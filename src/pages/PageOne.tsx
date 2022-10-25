@@ -2,7 +2,7 @@ export default function PageOne()
 {
   return (
     <>
-        <h2>Welcome to the first page</h2>
+        <h1>Welcome to the first page</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
           Vitae nunc sed velit dignissim sodales ut. Eu nisl nunc mi ipsum faucibus vitae. 
