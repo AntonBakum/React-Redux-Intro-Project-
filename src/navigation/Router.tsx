@@ -1,12 +1,12 @@
-import {
-    createBrowserRouter,
-    Route,
-    createRoutesFromElements,
-  } from "react-router-dom";
 import MainLayout from "../components/MainLayout";
 import PageOne from "../pages/PageOne";
 import PageTwo from "../pages/PageTwo";
 import WelcomePage from "../pages/WelcomePage";
+import {
+  createBrowserRouter,
+  Route,
+  createRoutesFromElements,
+} from "react-router-dom";
 
   
 export const router = createBrowserRouter(
