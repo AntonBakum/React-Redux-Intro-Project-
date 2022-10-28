@@ -10,7 +10,8 @@ import { RootState } from '../../../app/store';
 import { toggleStatus } from '../../../features/opener/sidebarSlice';
 import { drawerWidth } from '../../../styles/sidebarStyle';
 
-
+/*This component uses Redux capabilities to access the storage (useSelector()), 
+as well as to change the state of the application (useDispatch()). */
 
 const HeaderComponent = () => 
 {

@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../app/store";
 
+/*This component uses Redux capabilities to access the storage (useSelector())*/
 
 const MainComponent = () => 
 {

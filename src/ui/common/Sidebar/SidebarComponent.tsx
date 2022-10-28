@@ -19,6 +19,10 @@ import { toggleStatus } from '../../../features/opener/sidebarSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../app/store';
 
+/*This component uses Redux capabilities to access the storage (useSelector()), 
+as well as to change the state of the application (useDispatch()). 
+The useNavigate() hook is used to navigate the specified routes.*/
+
 const SidebarComponent = () => 
 {
    const isOpened = useSelector((state: RootState) => state.sidebar.open)
