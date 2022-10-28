@@ -1,15 +1,16 @@
-import HeaderComponent from "../ui/common/Header/HeaderComponent";
-import MainComponent from "../ui/common/Main/MainComponent";
-import SidebarComponent from "../ui/common/Sidebar/SidebarComponent";
+import HeaderContainer from "../ui/common/Header/HeaderContainer";
+import MainContainer from "../ui/common/Main/MainContainer";
+import SidebarContainer from "../ui/common/Sidebar/SidebarContainer";
 
-export default function MainLayout()
+const MainLayout = () =>
 {
-   
     return (
         <>
-            <SidebarComponent/>
-            <HeaderComponent/>
-            <MainComponent/>
+            <SidebarContainer/>
+            <HeaderContainer/>
+            <MainContainer/>
         </>
     )
 }
+
+export default MainLayout;

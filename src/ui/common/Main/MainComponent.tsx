@@ -1,17 +1,16 @@
 import  Box  from "@mui/material/Box";
 import { drawerWidth } from "../../../styles/sidebarStyle";
 import { Outlet } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { RootState } from "../../../app/store";
+import { Props } from "./MainContainer";
+
 
 /*This component uses Redux capabilities to access the storage (useSelector())*/
 
-const MainComponent = () => 
+const MainComponent = (props: Props) => 
 {
-    const isOpened = useSelector((state: RootState) => state.sidebar.open);
     return (
         <Box sx = {{
-            ...(isOpened && {
+            ...(props.isOpened && {
                 width: `calc(100% - ${drawerWidth}px)`,
                 marginLeft: `${drawerWidth}px`,
             }),

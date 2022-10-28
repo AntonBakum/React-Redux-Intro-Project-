@@ -11,44 +11,28 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import HomeIcon from '@mui/icons-material/Home';
 import AdbIcon from '@mui/icons-material/Adb';
 import sidebarStyle  from '../../../styles/sidebarStyle';
-import { useNavigate } from 'react-router-dom';
-import { useTheme } from '@mui/material/styles';
 import { sideBarItems } from '../../../constants/sidebarItems';
 import { DrawerHeader } from './SidebarHeader';
-import { toggleStatus } from '../../../features/opener/sidebarSlice';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../../app/store';
+import { Props } from './SidebarContainer';
 
-/*This component uses Redux capabilities to access the storage (useSelector()), 
-as well as to change the state of the application (useDispatch()). 
-The useNavigate() hook is used to navigate the specified routes.*/
-
-const SidebarComponent = () => 
+const SidebarComponent = (props: Props) => 
 {
-   const isOpened = useSelector((state: RootState) => state.sidebar.open)
-   const theme = useTheme();
-   const dispatch = useDispatch();
-   const navigate = useNavigate();
-   const handleSidebarOpen = () => 
-   {
-      dispatch(toggleStatus(!isOpened));
-   }
    return (
       <Drawer
         sx={sidebarStyle}
-        variant= {isOpened ? "permanent" : "persistent"}
+        variant= {props.isOpened ? "permanent" : "persistent"}
         anchor="left"
       >
       <DrawerHeader>
-         <IconButton onClick = {() => handleSidebarOpen()}>
-             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+         <IconButton onClick = {props.handleSidebarOpen}>
+             {props.theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
          </IconButton>
       </DrawerHeader>
       <Divider />
       <List>
         {sideBarItems.map((item, id) => (
           <ListItem key={item.id} disablePadding>
-            <ListItemButton onClick={() => {navigate(item.route)}}>
+            <ListItemButton onClick={() => {props.navigate(item.route)}}>
               <ListItemIcon>
                 {item.id === 1 ? <HomeIcon/> : <AdbIcon/>}
               </ListItemIcon>

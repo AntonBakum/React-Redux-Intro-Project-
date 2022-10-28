@@ -5,24 +5,14 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Badge from '@mui/material/Badge';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../../../app/store';
-import { toggleStatus } from '../../../features/opener/sidebarSlice';
 import { drawerWidth } from '../../../styles/sidebarStyle';
+import { Props } from './HeaderContainer';
 
-/*This component uses Redux capabilities to access the storage (useSelector()), 
-as well as to change the state of the application (useDispatch()). */
-
-const HeaderComponent = () => 
+const HeaderComponent = (props: Props) => 
 {
-    const isOpened = useSelector((state : RootState) => state.sidebar.open);
-    const dispatch = useDispatch();
-    const handleSidebarClose = () => {
-        dispatch(toggleStatus(!isOpened));
-    }
     return (
         <AppBar position= "static"
-         sx = {{...(isOpened && {
+         sx = {{...(props.isOpened && {
             width: `calc(100% - ${drawerWidth}px)`,
             marginLeft: `${drawerWidth}px`,
           }),
@@ -36,14 +26,14 @@ const HeaderComponent = () =>
                     aria-label="open drawer"
                     sx={{
                       marginRight: '36px',
-                      ...(isOpened && { display: 'none' }),
+                      ...(props.isOpened && { display: 'none' }),
                     }}
-                    onClick = {() => {handleSidebarClose()}}
+                    onClick = {props.handleSidebarClose}
                 >
             <MenuIcon />
             </IconButton>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                    {isOpened ? 'Sidebar is opened now' : 'Sidebar closed'}
+                    {props.isOpened ? 'Sidebar is opened' : 'Sidebar is closed '}
                 </Typography>
             <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
@@ -54,4 +44,5 @@ const HeaderComponent = () =>
       </AppBar>
     )
 }
+
 export default HeaderComponent;
