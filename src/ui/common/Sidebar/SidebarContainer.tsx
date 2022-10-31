@@ -11,8 +11,7 @@ const SidebarContainer = () =>
    const theme = useTheme();
    const dispatch = useAppDispatch();
    const navigate = useNavigate();
-   const handleSidebarOpen = () => 
-   {
+   const handleSidebarOpen = () => {
       dispatch(toggleStatus(!isOpened));
    }
    return (
