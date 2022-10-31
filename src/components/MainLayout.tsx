@@ -1,14 +1,15 @@
-import { Outlet } from "react-router-dom";
-import NavBar from "./NavBar";
+import HeaderContainer from '../ui/common/Header/HeaderContainer';
+import MainContainer from '../ui/common/Main/MainContainer';
+import SidebarContainer from '../ui/common/Sidebar/SidebarContainer';
 
-export default function MainLayout()
-{
-    return (
-        <>
-            <NavBar/>
-            <main>
-                <Outlet/>
-            </main>  
-        </>
-    )
-}
+const MainLayout = () => {
+  return (
+    <>
+      <SidebarContainer />
+      <HeaderContainer />
+      <MainContainer />
+    </>
+  );
+};
+
+export default MainLayout;
