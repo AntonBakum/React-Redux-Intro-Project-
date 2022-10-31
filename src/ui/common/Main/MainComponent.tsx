@@ -1,10 +1,11 @@
 import  Box  from "@mui/material/Box";
 import { drawerWidth } from "../../../styles/sidebarStyle";
 import { Outlet } from "react-router-dom";
-import { Props } from "./MainContainer";
 
-
-/*This component uses Redux capabilities to access the storage (useSelector())*/
+interface Props
+{
+    isOpened: boolean,
+}
 
 const MainComponent = (props: Props) => 
 {

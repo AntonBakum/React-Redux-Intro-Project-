@@ -2,15 +2,8 @@ import SidebarComponent from "./SidebarComponent"
 import { useAppDispatch, useAppSelector } from "../../../app/hooks"
 import {RootState} from "../../../app/store";
 import { toggleStatus } from "../../../features/opener/sidebarSlice";
-import { NavigateFunction, useNavigate } from 'react-router-dom';
-import { Theme, useTheme } from '@mui/material/styles';
-
-export interface Props {
-    isOpened : boolean,
-    handleSidebarOpen: () => void,
-    theme: Theme,
-    navigate: NavigateFunction,
-}
+import { useNavigate } from 'react-router-dom';
+import { useTheme } from '@mui/material/styles';
 
 const SidebarContainer = () => 
 {

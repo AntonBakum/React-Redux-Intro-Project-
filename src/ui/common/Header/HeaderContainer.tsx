@@ -3,11 +3,6 @@ import {RootState} from "../../../app/store";
 import { toggleStatus } from "../../../features/opener/sidebarSlice";
 import HeaderComponent from "./HeaderComponent"
 
-export interface Props {
-    isOpened : boolean,
-    handleSidebarClose : () => void,  
-}
-
 const HeaderContainer = () =>
 {
     const isOpened = useAppSelector((state : RootState) => state.sidebar.open);

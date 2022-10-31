@@ -13,7 +13,15 @@ import AdbIcon from '@mui/icons-material/Adb';
 import sidebarStyle  from '../../../styles/sidebarStyle';
 import { sideBarItems } from '../../../constants/sidebarItems';
 import { DrawerHeader } from './SidebarHeader';
-import { Props } from './SidebarContainer';
+import { NavigateFunction} from 'react-router-dom';
+import { Theme } from '@mui/material/styles';
+ 
+interface Props {
+  isOpened : boolean,
+  handleSidebarOpen: () => void,
+  theme: Theme,
+  navigate: NavigateFunction,
+}
 
 const SidebarComponent = (props: Props) => 
 {

@@ -6,7 +6,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Badge from '@mui/material/Badge';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { drawerWidth } from '../../../styles/sidebarStyle';
-import { Props } from './HeaderContainer';
+
+interface Props {
+  isOpened : boolean,
+  handleSidebarClose : () => void,  
+}
+
 
 const HeaderComponent = (props: Props) => 
 {
