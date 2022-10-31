@@ -8,46 +8,45 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import { drawerWidth } from '../../../styles/sidebarStyle';
 
 interface Props {
-  isOpened : boolean,
-  handleSidebarClose : () => void,  
+  isOpened: boolean;
+  handleSidebarClose: () => void;
 }
 
-
-const HeaderComponent = (props: Props) => 
-{
-    return (
-        <AppBar position= "static"
-         sx = {{...(props.isOpened && {
-            width: `calc(100% - ${drawerWidth}px)`,
-            marginLeft: `${drawerWidth}px`,
-          }),
-        }
-        }
+const HeaderComponent = (props: Props) => {
+  return (
+    <AppBar
+      position="static"
+      sx={{
+        ...(props.isOpened && {
+          width: `calc(100% - ${drawerWidth}px)`,
+          marginLeft: `${drawerWidth}px`,
+        }),
+      }}
+    >
+      <Toolbar>
+        <IconButton
+          edge="start"
+          color="inherit"
+          aria-label="open drawer"
+          sx={{
+            marginRight: '36px',
+            ...(props.isOpened && { display: 'none' }),
+          }}
+          onClick={props.handleSidebarClose}
         >
-            <Toolbar>
-                <IconButton
-                    edge="start"
-                    color="inherit"
-                    aria-label="open drawer"
-                    sx={{
-                      marginRight: '36px',
-                      ...(props.isOpened && { display: 'none' }),
-                    }}
-                    onClick = {props.handleSidebarClose}
-                >
-            <MenuIcon />
-            </IconButton>
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                    {props.isOpened ? 'Sidebar is opened' : 'Sidebar is closed '}
-                </Typography>
-            <IconButton color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            </Toolbar>
-      </AppBar>
-    )
-}
+          <MenuIcon />
+        </IconButton>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          {props.isOpened ? 'Sidebar is opened' : 'Sidebar is closed '}
+        </Typography>
+        <IconButton color="inherit">
+          <Badge badgeContent={4} color="secondary">
+            <NotificationsIcon />
+          </Badge>
+        </IconButton>
+      </Toolbar>
+    </AppBar>
+  );
+};
 
 export default HeaderComponent;
