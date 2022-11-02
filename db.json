@@ -3,191 +3,191 @@
         {
             "id": 1,
             "name": "Apples",
-            "description": "",
+            "description": "The best Ukrainian apples",
             "price": "",
             "sale": "",
             "image": "",
-            "createdDate": "" 
+            "createdDate": "11/1/2022" 
         },
         {
             "id": 2,
             "name": "Oranges",
-            "description": "",
+            "description": "The best Ukrainian oranges",
             "price": "",
             "sale": "",
             "image": "",
-            "createdDate": "" 
+            "createdDate": "11/1/2022" 
         },
         {
             "id": 3,
             "name": "Cucumbers",
-            "description": "",
+            "description": "The best Ukrainian cucumbers",
             "price": "",
             "sale": "",
             "image": "",
-            "createdDate": "" 
+            "createdDate": "11/1/2022" 
         },
         {
             "id": 4,
             "name": "Onions",
-            "description": "",
+            "description": "The best Ukrainian onions",
             "price": "",
             "sale": "",
             "image": "",
-            "createdDate": "" 
+            "createdDate": "11/1/2022" 
         },
         {
             "id": 5,
             "name": "Mango",
-            "description": "",
+            "description": "The best Ukrainian mango",
             "price": "",
             "sale": "",
             "image": "",
-            "createdDate": "" 
+            "createdDate": "11/1/2022" 
         },
         {
             "id": 6,
             "name": "Tomatoes",
-            "description": "",
+            "description": "The best Ukrainian tomatoes",
             "price": "",
             "sale": "",
             "image": "",
-            "createdDate": "" 
+            "createdDate": "11/1/2022" 
         },
         {
             "id": 7,
             "name": "Avocado",
-            "description": "",
+            "description": "The best Ukrainian avocado",
             "price": "",
             "sale": "",
             "image": "",
-            "createdDate": "" 
+            "createdDate": "11/1/2022" 
         },
         {
             "id": 8,
             "name": "Pasta",
-            "description": "",
+            "description": "The best Ukrainian pasta",
             "price": "",
             "sale": "",
             "image": "",
-            "createdDate": "" 
+            "createdDate": "11/1/2022" 
         },
         {
             "id": 9,
             "name": "Sousages",
-            "description": "",
+            "description": "The best Ukrainian sousages",
             "price": "",
             "sale": "",
             "image": "",
-            "createdDate": "" 
+            "createdDate": "11/1/2022" 
         },
         {
             "id": 10,
             "name": "Coca-Cola",
-            "description": "",
+            "description": "The best Ukrainian Coca-Cola",
             "price": "",
             "sale": "",
             "image": "",
-            "createdDate": "" 
+            "createdDate": "11/1/2022" 
         },
         {
             "id": 11,
             "name": "Mirinda",
-            "description": "",
+            "description": "The best Ukrainian Mirinda",
             "price": "",
             "sale": "",
             "image": "",
-            "createdDate": "" 
+            "createdDate": "11/1/2022" 
         },
         {
             "id": 12,
             "name": "Cheese",
-            "description": "",
+            "description": "The best Ukrainian Cheese",
             "price": "",
             "sale": "",
             "image": "",
-            "createdDate": "" 
+            "createdDate": "11/1/2022" 
         },
         {
             "id": 13,
             "name": "Sprite",
-            "description": "",
+            "description": "The best Ukrainian Sprite",
             "price": "",
             "sale": "",
             "image": "",
-            "createdDate": "" 
+            "createdDate": "11/1/2022" 
         },
         {
             "id": 14,
             "name": "Ceasar Salad",
-            "description": "",
+            "description": "The best Ukrainian salad",
             "price": "",
             "sale": "",
             "image": "",
-            "createdDate": "" 
+            "createdDate": "11/1/2022" 
         },
         {
             "id": 15,
             "name": "Meat",
-            "description": "",
+            "description": "The best Ukrainian meat",
             "price": "",
             "sale": "",
             "image": "",
-            "createdDate": "" 
+            "createdDate": "11/1/2022" 
         },
         {
             "id": 16,
             "name": "Brauni",
-            "description": "",
+            "description": "The best Ukrainian brauni",
             "price": "",
             "sale": "",
             "image": "",
-            "createdDate": "" 
+            "createdDate": "11/1/2022" 
         },
         {
             "id": 17,
             "name": "Pana-cotta",
-            "description": "",
+            "description": "The best Ukrainian pana-cotta",
             "price": "",
             "sale": "",
             "image": "",
-            "createdDate": "" 
+            "createdDate": "11/1/2022" 
         },
         {
             "id": 18,
             "name": "Tea",
-            "description": "",
+            "description": "The best Ukrainian tea",
             "price": "",
             "sale": "",
             "image": "",
-            "createdDate": "" 
+            "createdDate": "11/1/2022" 
         },
         {
             "id": 19,
             "name": "Coffee",
-            "description": "",
+            "description": "The best Ukrainian coffee",
             "price": "",
             "sale": "",
             "image": "",
-            "createdDate": "" 
+            "createdDate": "11/1/2022" 
         },
         {
             "id": 20,
             "name": "Milk",
-            "description": "",
+            "description": "The best Ukrainian milk",
             "price": "",
             "sale": "",
             "image": "",
-            "createdDate": "" 
+            "createdDate": "11/1/2022" 
         },
         {
             "id": 21,
             "name": "Cacao",
-            "description": "",
+            "description": "The best Ukrainian milk",
             "price": "",
             "sale": "",
             "image": "",
-            "createdDate": "" 
+            "createdDate": "11/1/2022" 
         }
     ]
 }
