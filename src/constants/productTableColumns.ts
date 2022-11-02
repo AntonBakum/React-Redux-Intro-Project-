@@ -1,22 +1,21 @@
 
 export const productTableColumns = [
-    { field: 'id', headerName: 'ID', width: 70 },
-    { field: 'Name', headerName: 'Name', width: 130 },
-    { field: 'Description', headerName: 'Description', width: 130 },
-    { field: 'Price', headerName: 'Price', width: 130 },
+    { field: 'name', headerName: 'Name', width: 200 },
+    { field: 'description', headerName: 'Description', width: 250 },
+    { field: 'price', headerName: 'Price', width: 200 },
     {
-      field: 'Sale',
+      field: 'sale',
       headerName: 'Sale',
-      width: 90,
+      width: 170,
     },
     {
-      field: 'Image',
+      field: 'image',
       headerName: 'Image',
-      width: 160,
+      width: 250,
     },
     {
-      field: 'CreatedDate',
+      field: 'createdDate',
       headerName: 'CreatedDate',
-      width: 160,
+      width: 170,
     },
   ];
