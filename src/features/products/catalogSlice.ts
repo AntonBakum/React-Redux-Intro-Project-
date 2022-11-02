@@ -60,3 +60,4 @@ export const catalogSlice = createSlice({
 
 export const { setProducts } = catalogSlice.actions;
 export default catalogSlice.reducer;
+/**/

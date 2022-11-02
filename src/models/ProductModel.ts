@@ -6,3 +6,4 @@ export interface ProductModel {
 	image: string,
 	createdDate: string,
 }
+/**/

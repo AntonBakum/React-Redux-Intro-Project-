@@ -13,3 +13,4 @@ export const ProductsPageContainer = () => {
         <ProductsPage getProductsClick= {() =>{dispatch(getProducts())}}  products={products} productIds = {productIds}/>
     )
 }
+/**/

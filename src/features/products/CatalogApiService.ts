@@ -11,3 +11,4 @@ export const getProducts = createAsyncThunk (
         dispatch(setProducts(response.data))
 	}
 )
+/**/
