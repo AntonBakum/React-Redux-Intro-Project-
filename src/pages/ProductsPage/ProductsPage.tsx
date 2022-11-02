@@ -11,7 +11,7 @@ interface Props {
   productIds: number[];
 }
 
-export default function PageOne(props: Props) {
+export default function ProductsPage (props: Props) {
   return (
     <>
         <Box textAlign="center" marginBottom = '8px'>

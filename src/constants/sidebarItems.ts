@@ -1,5 +1,4 @@
-import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
-import HomeIcon from '@mui/icons-material/Home';
+
 
 export const sideBarItems = [
     {
@@ -9,8 +8,8 @@ export const sideBarItems = [
     },
     {
         id: 2,
-        title: "Page One",
-        route: "page1",
+        title: "Products Page",
+        route: "productsPage",
     },
     {
         id: 3,
