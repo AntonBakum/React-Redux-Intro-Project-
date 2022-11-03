@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ProductModel } from '../models/ProductModel';
 import { getProductsThunkAction } from '../actions/getProductsThunkAction';
 
@@ -14,13 +14,16 @@ const initialState: State = {
   productsIds: [],
 };
 
+
+
+
 export const catalogSlice = createSlice({
   name: 'catalog',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getProductsThunkAction.fulfilled, (state, action) => {
-      state.productsIds = action.payload.map((product: any) => product.id);
+    builder.addCase(getProductsThunkAction.fulfilled, (state, action: PayloadAction<ProductModel[]>) => {
+      state.productsIds = action.payload.map((product) => product.id);
       state.products = action.payload;
     });
   },

@@ -9,16 +9,12 @@ export const ProductsPageContainer = () => {
   const products: ProductModel[] = useAppSelector((state: RootState) =>
     state.catalog.productsIds.map((id) => state.catalog.products[id]),
   );
-  const productIds = useAppSelector(
-    (state: RootState) => state.catalog.productsIds,
-  );
   return (
     <ProductsPageComponent
       onGetProductsClick={() => {
         dispatch(getProductsThunkAction());
       }}
       products={products}
-      productIds={productIds}
     />
   );
 };

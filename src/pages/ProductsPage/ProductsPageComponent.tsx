@@ -8,7 +8,6 @@ import { ProductModel } from '../../models/ProductModel';
 interface Props {
   onGetProductsClick: () => void;
   products: ProductModel[];
-  productIds: number[];
 }
 
 export default function ProductsPageComponent(props: Props) {
