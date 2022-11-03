@@ -6,13 +6,13 @@ import {
   Route,
   createRoutesFromElements,
 } from 'react-router-dom';
-import { PageOneContainer } from '../pages/PageOne/PageOneContainer';
+import { ProductsPageContainer } from '../pages/ProductsPage';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<MainLayout />}>
       <Route path="/" index element={<WelcomePage />} />
-      <Route path="/page1" element={<PageOneContainer/>} />
+      <Route path="/products" element={<ProductsPageContainer />} />
       <Route path="/page2" element={<PageTwo />} />
     </Route>,
   ),

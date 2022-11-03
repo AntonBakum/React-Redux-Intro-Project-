@@ -1,9 +1,9 @@
 import SidebarComponent from "./SidebarComponent";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import { RootState } from "../../../app/store";
-import { toggleStatus } from "../../../features/opener/sidebarSlice";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
+import { toggleStatus } from "../../../slices/sidebarSlice";
 
 const SidebarContainer = () => {
   const isOpened = useAppSelector((state: RootState) => state.sidebar.open);
