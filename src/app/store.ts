@@ -1,11 +1,9 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
-import sidebarReducer from '../features/opener/sidebarSlice';
-import catalogReducer from '../features/products/catalogSlice';
+import sidebarReducer from '../slices/sidebarSlice';
+import catalogReducer from '../slices/catalogSlice';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
     sidebar: sidebarReducer,
     catalog: catalogReducer,
   },

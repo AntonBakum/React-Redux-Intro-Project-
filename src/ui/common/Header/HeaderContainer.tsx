@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import { RootState } from '../../../app/store';
-import { toggleStatus } from '../../../features/opener/sidebarSlice';
+import { toggleStatus } from '../../../slices/sidebarSlice';
 import HeaderComponent from './HeaderComponent';
 
 const HeaderContainer = () => {
