@@ -4,8 +4,8 @@
             "id": 0,
             "name": "Apples",
             "description": "The best Ukrainian apples",
-            "price": "",
-            "sale": "",
+            "price": "10,90",
+            "sale": "15%",
             "image": "",
             "createdDate": "11/1/2022" 
         },
