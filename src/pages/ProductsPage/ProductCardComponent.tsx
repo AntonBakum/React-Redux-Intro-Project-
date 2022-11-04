@@ -10,9 +10,8 @@ import Box from '@mui/material/Box';
 import { CardHeader, Grid } from '@mui/material';
 import { ProductModel } from '../../models/ProductModel';
 
-
 interface Props {
-  product: ProductModel,
+  product: ProductModel;
 }
 
 const ProductCardComponent = (props: Props) => {
@@ -27,9 +26,14 @@ const ProductCardComponent = (props: Props) => {
       }}
     >
       <Box display="flex" justifyContent="center">
-        <CardHeader title= {props.product.createdDate}/>
+        <CardHeader title={props.product.createdDate} />
       </Box>
-      <CardMedia component="img" alt={props.product.name} height="160" image="https://media.giphy.com/media/GDp7LycxkT3LG/giphy.gif" />
+      <CardMedia
+        component="img"
+        alt={props.product.name}
+        height="160"
+        image="https://media.giphy.com/media/GDp7LycxkT3LG/giphy.gif"
+      />
       <CardContent>
         <Box display="flex" justifyContent="center">
           <Typography

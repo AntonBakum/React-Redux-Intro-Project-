@@ -1,4 +1,4 @@
-import { useAppDispatch} from '../../app/hooks';
+import { useAppDispatch } from '../../app/hooks';
 import { getProductsThunkAction } from '../../actions/getProductsThunkAction';
 import ProductsPageComponent from './ProductsPageComponent';
 
