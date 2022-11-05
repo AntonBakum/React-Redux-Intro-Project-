@@ -5,7 +5,6 @@ export const theme = createTheme(
         typography: {
             fontFamily: [
                 'Ubuntu',
-                'Roboto',
             ].join(','),
         },
     }
