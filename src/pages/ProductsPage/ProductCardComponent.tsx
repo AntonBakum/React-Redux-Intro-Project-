@@ -7,8 +7,10 @@ import Typography from '@mui/material/Typography';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import DescriptionIcon from '@mui/icons-material/Description';
 import Box from '@mui/material/Box';
-import { Avatar, CardHeader, Grid, Paper } from '@mui/material';
+import { Avatar, Badge, Grid} from '@mui/material';
 import { ProductModel } from '../../models/ProductModel';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import ShareIcon from '@mui/icons-material/Share';
 
 interface Props {
   product: ProductModel;
@@ -19,57 +21,94 @@ const ProductCardComponent = (props: Props) => {
     <Card
       sx={{
         maxWidth: 400,
-        backgroundColor: 'primary.light',
       }}
     >
-      <Grid container sx={{ textAlign: 'start' }}>
-        <CardHeader
-          avatar={
-            <Avatar sx={{ bgcolor: 'red' }} aria-label="sale">
-              {props.product.sale}
-            </Avatar>
-          }
-        />
-      </Grid>
-      <Paper elevation={2}>
+      <Grid container sx={{ position: 'relative' }}>
         <CardMedia
           component="img"
           alt={props.product.name}
-          height="180"
-          image="https://media.giphy.com/media/9xu5xmkt5IbXW/giphy.gif"
+          height="200"
+          image = {props.product.image}
         />
-      </Paper>
-      <CardContent>
-        <Box display="flex" justifyContent="center">
-          <Typography
-            gutterBottom
-            variant="h5"
-            component="div"
-            sx={{ fontWeight: 'bolder' }}
-          >
-            {props.product.name}
-          </Typography>
-        </Box>
         <Grid
           container
-          spacing={4}
-          sx={{ textAlign: 'center', marginBottom: '20px' }}
+          sx={{ position: 'absolute', padding: '10px' }}
         >
           <Grid item xs={6}>
-            <Paper elevation={2} sx={{ width: '170px' }}>
-              {props.product.price}
-            </Paper>
+              <Typography
+                gutterBottom
+                variant="h5"
+                component="div"
+                sx={{ fontWeight: 'bolder' }}
+              >
+                {props.product.name}
+              </Typography>
           </Grid>
           <Grid item xs={6}>
-            <Paper elevation={2} sx={{ width: '170px' }}>
-              {props.product.createdDate}
-            </Paper>
+            <Box display="flex" justifyContent="flex-end">
+              <Avatar
+                sx={{
+                  bgcolor: 'white',
+                  color: 'black',
+                  width: 45,
+                  height: 45,
+                  border: 'solid black',
+                }}
+                aria-label="sale"
+              >
+                {`-${props.product.sale}`}
+              </Avatar>
+            </Box>
           </Grid>
         </Grid>
-        <Grid display="flex" justifyContent="center">
-          <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-            {props.product.description}
-          </Typography>
+      </Grid>
+      <CardContent>
+        <Grid container>
+          <Grid item xs={6} sx={{ fontStyle: 'italic', fontWeight: "bold", fontSize: "25px"}}>
+            <Box display="flex" justifyContent="flex-start">
+              {props.product.price}
+            </Box>
+          </Grid>
+          <Grid item xs={6}>
+            <Box
+              display="flex"
+              justifyContent="flex-end"
+              sx={{ marginBottom: '15px' }}
+            >
+              <Badge>
+                <Avatar sx={{ width: 30, height: 30 }} aria-label="sale">
+                  <Button sx={{ color: 'white', backgroundColor: '#F04254' }}>
+                    <FavoriteBorderIcon />
+                  </Button>
+                </Avatar>
+                <Avatar sx={{ width: 30, height: 30 }} aria-label="sale">
+                  <Button sx={{ color: '#394254', backgroundColor: 'white' }}>
+                    <ShareIcon />
+                  </Button>
+                </Avatar>
+              </Badge>
+            </Box>
+          </Grid>
+        </Grid>
+        <Box
+          display="flex"
+          justifyContent="flex-end"
+          sx={{ fontStyle: 'italic' }}
+        >
+          {props.product.createdDate}
+        </Box>
+        <Grid container>
+          <Grid item xs={12}>
+            <Typography
+              gutterBottom
+              variant="h6"
+              component="div"
+              sx={{ fontWeight: 'bolder' }}
+            >
+              Description:
+            </Typography>
+          </Grid>
+          <Typography variant="body1">{props.product.description}</Typography>
         </Grid>
       </CardContent>
       <CardActions>
