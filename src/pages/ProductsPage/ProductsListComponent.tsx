@@ -8,9 +8,9 @@ interface Props {
 
 const ProductsListComponent = (props: Props) => {
   return (
-    <Grid container spacing={1} display="flex">
+    <Grid container spacing={1}>
       {props.products.map((product) => (
-        <Grid item xs={4} justifyContent="flex-center">
+        <Grid item xs={4}>
           <ProductCardComponent product={product} />
         </Grid>
       ))}
