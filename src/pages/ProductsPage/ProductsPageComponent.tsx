@@ -9,7 +9,7 @@ interface Props {
 export default function ProductsPageComponent(props: Props) {
   return (
     <>
-      <Box marginBottom="8px">
+      <Box sx = {{marginBottom : "8px"}}>
         <Button
           variant="contained"
           onClick={props.onGetProductsClick}

@@ -13,12 +13,12 @@ export const cardMediaChildContainer: SxProps = {
   padding: '10px',
 };
 
-export const productNameTypography: SxProps = {
+export const productName: SxProps = {
   fontWeight: 'bolder',
 };
 
 export const productSaleAvatar: SxProps = {
-  bgcolor: 'white',
+  backgroundColor: 'white',
   color: 'black',
   width: 45,
   height: 45,
@@ -31,11 +31,11 @@ export const productPriceItem: SxProps = {
   fontSize: '25px',
 };
 
-export const productCardBadgeBox: SxProps = {
+export const productCardBadge: SxProps = {
   marginBottom: '15px',
 };
 
-export const productCardBageAvatar: SxProps = {
+export const productCardBadgeAvatar: SxProps = {
   width: 30,
   height: 30,
 };
@@ -50,7 +50,7 @@ export const shareButton: SxProps = {
   backgroundColor: 'white',
 };
 
-export const productDateBox: SxProps = {
+export const productDate: SxProps = {
   fontStyle: 'italic',
 };
 
@@ -79,3 +79,5 @@ export const descriptionButton: SxProps = {
 export const descriptionButtonItem: SxProps = {
   textAlign: 'end',
 };
+
+export * as styles from './styles';

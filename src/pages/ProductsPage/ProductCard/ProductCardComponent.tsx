@@ -1,17 +1,23 @@
-import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import DescriptionIcon from '@mui/icons-material/Description';
-import Box from '@mui/material/Box';
-import * as styles from "./styles"
-import { Avatar, Badge, Grid} from '@mui/material';
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Typography,
+  Avatar,
+  Badge,
+  Grid,
+  Box,
+} from '@mui/material';
+import {
+  AddShoppingCart,
+  FavoriteBorder,
+  Share,
+  Description,
+} from '@mui/icons-material';
 import { ProductModel } from '../../../models/ProductModel';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import ShareIcon from '@mui/icons-material/Share';
+import { styles } from './styles';
 
 interface Props {
   product: ProductModel;
@@ -19,36 +25,23 @@ interface Props {
 
 const ProductCardComponent = (props: Props) => {
   return (
-    <Card
-      sx={styles.mainCardStyle}
-    >
+    <Card sx={styles.mainCardStyle}>
       <Grid container sx={styles.cardMediaContainer}>
         <CardMedia
           component="img"
           alt={props.product.name}
           height="200"
-          image = {props.product.image}
+          image={props.product.image}
         />
-        <Grid
-          container
-          sx={styles.cardMediaChildContainer}
-        >
+        <Grid container sx={styles.cardMediaChildContainer}>
           <Grid item xs={6}>
-              <Typography
-                gutterBottom
-                variant="h5"
-                component="div"
-                sx={styles.productNameTypography}
-              >
-                {props.product.name}
-              </Typography>
+            <Typography gutterBottom variant="h5" sx={styles.productName}>
+              {props.product.name}
+            </Typography>
           </Grid>
           <Grid item xs={6}>
             <Box display="flex" justifyContent="flex-end">
-              <Avatar
-                sx={styles.productSaleAvatar}
-                aria-label="sale"
-              >
+              <Avatar sx={styles.productSaleAvatar} aria-label="sale">
                 {`-${props.product.sale}`}
               </Avatar>
             </Box>
@@ -66,28 +59,24 @@ const ProductCardComponent = (props: Props) => {
             <Box
               display="flex"
               justifyContent="flex-end"
-              sx={styles.productCardBadgeBox}
+              sx={styles.productCardBadge}
             >
               <Badge>
-                <Avatar sx={styles.productCardBageAvatar} aria-label="sale">
+                <Avatar sx={styles.productCardBadgeAvatar} aria-label="sale">
                   <Button sx={styles.addToFavouriteButton}>
-                    <FavoriteBorderIcon />
+                    <FavoriteBorder />
                   </Button>
                 </Avatar>
-                <Avatar sx={styles.productCardBageAvatar} aria-label="sale">
+                <Avatar sx={styles.productCardBadgeAvatar} aria-label="sale">
                   <Button sx={styles.shareButton}>
-                    <ShareIcon />
+                    <Share />
                   </Button>
                 </Avatar>
               </Badge>
             </Box>
           </Grid>
         </Grid>
-        <Box
-          display="flex"
-          justifyContent="flex-end"
-          sx={styles.productDateBox}
-        >
+        <Box display="flex" justifyContent="flex-end" sx={styles.productDate}>
           {props.product.createdDate}
         </Box>
         <Grid container>
@@ -95,7 +84,6 @@ const ProductCardComponent = (props: Props) => {
             <Typography
               gutterBottom
               variant="h6"
-              component="div"
               sx={styles.productDescriptionHeader}
             >
               Description:
@@ -107,10 +95,7 @@ const ProductCardComponent = (props: Props) => {
       <CardActions>
         <Grid container spacing={1}>
           <Grid item xs={6}>
-            <Button
-              sx={styles.addToCartButton}
-              startIcon={<AddShoppingCartIcon />}
-            >
+            <Button sx={styles.addToCartButton} startIcon={<AddShoppingCart />}>
               Add to cart
             </Button>
           </Grid>
@@ -118,7 +103,7 @@ const ProductCardComponent = (props: Props) => {
             <Button
               size="medium"
               sx={styles.descriptionButton}
-              startIcon={<DescriptionIcon />}
+              startIcon={<Description />}
             >
               Info
             </Button>
