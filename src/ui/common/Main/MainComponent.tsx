@@ -10,6 +10,7 @@ const MainComponent = (props: Props) => {
   return (
     <Box
       sx={{
+        marginLeft:"8%",
         ...(props.isOpened && {
           width: `calc(100% - ${drawerWidth}px)`,
           marginLeft: `${drawerWidth}px`,
