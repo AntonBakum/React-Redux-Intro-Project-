@@ -1,0 +1,30 @@
+Application startup exception 11/16/2022 5:22:08 PM
+Application startup exception 11/16/2022 5:22:48 PM
+Application startup exception 11/16/2022 5:25:11 PM
+Now listening on: https://localhost:7180 11/16/2022 5:44:56 PM
+Now listening on: http://localhost:5119 11/16/2022 5:44:56 PM
+Application started. Press Ctrl+C to shut down. 11/16/2022 5:44:56 PM
+Hosting environment: Development 11/16/2022 5:44:56 PM
+Content root path: C:\Pets\React-Redux-Intro-Project-\web-api\PetProjectWepApi\PetProjectWepApi\ 11/16/2022 5:44:56 PM
+Http request is coming 11/16/2022 5:44:59 PM
+Http request is coming 11/16/2022 5:44:59 PM
+Http request is coming 11/16/2022 5:45:00 PM
+Http request is coming 11/16/2022 5:45:00 PM
+Http request is coming 11/16/2022 5:45:00 PM
+Http request is coming 11/16/2022 5:45:00 PM
+Now listening on: https://localhost:7180 11/16/2022 5:53:35 PM
+Now listening on: http://localhost:5119 11/16/2022 5:53:35 PM
+Application started. Press Ctrl+C to shut down. 11/16/2022 5:53:35 PM
+Hosting environment: Development 11/16/2022 5:53:35 PM
+Content root path: C:\Pets\React-Redux-Intro-Project-\web-api\PetProjectWepApi\PetProjectWepApi\ 11/16/2022 5:53:35 PM
+Http request is coming 11/16/2022 5:53:36 PM
+Http request is coming 11/16/2022 5:53:36 PM
+Http request is coming 11/16/2022 5:53:36 PM
+Http request is coming 11/16/2022 5:53:36 PM
+Http request is coming 11/16/2022 5:53:36 PM
+Http request is coming 11/16/2022 5:53:36 PM
+Now listening on: https://localhost:7180 11/16/2022 5:55:17 PM
+Now listening on: http://localhost:5119 11/16/2022 5:55:17 PM
+Application started. Press Ctrl+C to shut down. 11/16/2022 5:55:17 PM
+Hosting environment: Development 11/16/2022 5:55:17 PM
+Content root path: C:\Pets\React-Redux-Intro-Project-\web-api\PetProjectWepApi\PetProjectWepApi\ 11/16/2022 5:55:17 PM
