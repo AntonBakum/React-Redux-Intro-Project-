@@ -4,7 +4,7 @@ namespace pet_api.Infrastructure.Logging
 {
     public class FileLoggerProvider : ILoggerProvider
     {
-        string path;
+        private readonly string path;
         public FileLoggerProvider(string path)
         {
             this.path = path;

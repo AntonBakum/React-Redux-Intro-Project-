@@ -2,7 +2,8 @@
 {
     public class FileLogger : ILogger
     {
-        string path;
+        private readonly string path;
+        private readonly object _lock = new object();
         public FileLogger(string path)
         {
             this.path = path;
@@ -23,11 +24,15 @@
             {
                 return;
             }
-            using (FileStream stream = File.Open(path, FileMode.Append))
-            using (StreamWriter streamWriter = new StreamWriter(stream))
+            lock(_lock)
             {
-                streamWriter.WriteLine(formatter(state, exception));
+                using (FileStream stream = File.Open(path, FileMode.Append))
+                using (StreamWriter streamWriter = new StreamWriter(stream))
+                {
+                    streamWriter.WriteLine(formatter(state, exception));
+                }
             }
+
         }
     }
 }

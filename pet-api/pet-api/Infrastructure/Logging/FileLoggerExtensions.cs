@@ -4,7 +4,7 @@ namespace pet_api.Infrastructure.Logging
 {
     public static class FileLoggerExtensions
     {
-        public static string CreateFile()
+        private static string CreatePath()
         {
             return Path.Combine(Path.GetFullPath("Infrastructure\\Logging\\LogFiles"), "file-" + DateTime.Now.ToString("yyyy-MM-dd") + ".txt");
         }
@@ -14,7 +14,7 @@ namespace pet_api.Infrastructure.Logging
                 ServiceDescriptor.Singleton<ILoggerProvider, FileLoggerProvider>(
                     (srv) =>
                     {
-                        return new FileLoggerProvider(CreateFile());
+                        return new FileLoggerProvider(CreatePath());
                     }
              ));
             return builder;
