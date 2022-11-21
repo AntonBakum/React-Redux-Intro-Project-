@@ -1,7 +1,13 @@
+using pet_api.Infrastructure.Logging;
 using pet_api.Middleware.ErrorHandlingMiddleware;
 using pet_api.Middleware.LoggingMiddleware;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddLogging(loggingBuilder =>
+{
+    loggingBuilder.ClearProviders();
+    loggingBuilder.AddFile();
+});
 
 // Add services to the container.
 
