@@ -1,4 +1,7 @@
-﻿namespace pet_api.Middleware.LoggingMiddleware
+﻿using Microsoft.AspNetCore.Mvc.ApplicationParts;
+using System.Reflection;
+
+namespace pet_api.Middleware.LoggingMiddleware
 {
     public class LoggingMiddleware
     {

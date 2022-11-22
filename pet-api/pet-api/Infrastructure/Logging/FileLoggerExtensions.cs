@@ -5,8 +5,9 @@ namespace pet_api.Infrastructure.Logging
     public static class FileLoggerExtensions
     {
         private static string CreatePath()
-        {
-            return Path.Combine(Path.GetFullPath("Infrastructure\\Logging\\LogFiles"), "file-" + DateTime.Now.ToString("yyyy-MM-dd") + ".txt");
+        { 
+            string filePattern = "file-" + DateTime.Now.ToString("yyyy-MM-dd") + ".txt";
+            return Path.Combine(Environment.CurrentDirectory, $"LogFiles\\{filePattern}");
         }
         public static ILoggingBuilder AddFile(this ILoggingBuilder builder)
         {
