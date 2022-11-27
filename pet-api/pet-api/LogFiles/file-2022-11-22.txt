@@ -1,7 +1,0 @@
-Now listening on: https://localhost:7291
-Now listening on: http://localhost:5065
-Application started. Press Ctrl+C to shut down.
-Hosting environment: Development
-Content root path: C:\Pets\React-Redux-Intro-Project-\pet-api\pet-api\
-11/22/2022 10:27:32 AM ; GET ; /WeatherForecast ; 200
-11/22/2022 10:27:33 AM ; GET ; /WeatherForecast ; 200

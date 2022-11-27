@@ -2,10 +2,10 @@
 
 namespace pet_api.Infrastructure.Logging
 {
-    public static class FileLoggerExtensions
+    public  static class FileLoggerExtensions
     {
         private static string CreatePath()
-        { 
+        {
             string filePattern = "file-" + DateTime.Now.ToString("yyyy-MM-dd") + ".txt";
             return Path.Combine(Environment.CurrentDirectory, $"LogFiles\\{filePattern}");
         }
