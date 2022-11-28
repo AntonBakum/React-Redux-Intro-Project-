@@ -2,7 +2,7 @@
 
 namespace pet_api.Infrastructure.Logging
 {
-    public  static class FileLoggerExtensions
+    public static class FileLoggerExtensions
     {
         private static string CreatePath()
         {

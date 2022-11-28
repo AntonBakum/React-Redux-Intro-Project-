@@ -2,7 +2,7 @@
 {
     public class ProductFeedback
     {
-        public int ProductFeedbackId { get; set; }
+        public int Id { get; set; }
         public string Content { get; set; }
         public DateTime DateOfPublication { get; set; }
         public int ProductId { get; set; }

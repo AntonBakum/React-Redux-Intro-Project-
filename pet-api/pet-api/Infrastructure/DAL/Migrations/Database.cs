@@ -17,7 +17,7 @@ namespace pet_api.Infrastructure.DAL.Migrations
             string query = "SELECT * FROM sys.databases WHERE name = @name";
             var parameters = new DynamicParameters();
             parameters.Add("name", databaseName);
-            using (var connection = _context.CreateMasterConnection())
+            using (var connection = _context.MasterSqlConnection)
             {
                 var records = connection.Query(query, parameters);
                 if (!records.Any())

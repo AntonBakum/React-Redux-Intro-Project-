@@ -6,7 +6,7 @@ namespace pet_api.Domain.Interfaces
 {
     public interface IDatabaseContext
     {
-        public IDbConnection CreateConnection();
-        public IDbConnection CreateMasterConnection();
+        SqlConnection SqlConnection { get; set; }
+        SqlConnection MasterSqlConnection { get; set; }
     }
 }

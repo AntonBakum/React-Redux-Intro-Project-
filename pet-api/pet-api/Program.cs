@@ -7,13 +7,16 @@ using pet_api.Middleware.LoggingMiddleware;
 using pet_api.Infrastructure.DAL.Extensions;
 using FluentMigrator.Runner;
 using System.Reflection;
+using Microsoft.Data.SqlClient;
 
 var builder = WebApplication.CreateBuilder(args);
+string connectionString = builder.Configuration.GetConnectionString("SqlConnection");
+string masterConnectionString = builder.Configuration.GetConnectionString("MasterConnection");
 
 builder.Services.AddLogging(c => c.AddFluentMigratorConsole())
 .AddFluentMigratorCore()
         .ConfigureRunner(c => c.AddSqlServer()
-            .WithGlobalConnectionString("server=.; database=PetApiDatabase; Integrated Security=true")
+            .WithGlobalConnectionString(connectionString)
             .ScanIn(Assembly.GetExecutingAssembly()).For.All());
 
 builder.Services.AddLogging(loggingBuilder =>
@@ -22,8 +25,15 @@ builder.Services.AddLogging(loggingBuilder =>
     loggingBuilder.AddFileLoggerProvider();
 });
 
-builder.Services.AddSingleton<IDatabaseContext, DatabaseContext>();
-builder.Services.AddSingleton<Database>();
+builder.Services.AddScoped<IDatabaseContext>((provider) =>
+{
+    return new DatabaseContext
+    {
+        SqlConnection = new SqlConnection(connectionString),
+        MasterSqlConnection = new SqlConnection(masterConnectionString)
+    };
+});
+builder.Services.AddScoped<Database>();
 // Add services to the container.
 
 builder.Services.AddControllers();

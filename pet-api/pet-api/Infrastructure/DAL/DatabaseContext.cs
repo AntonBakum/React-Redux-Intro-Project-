@@ -5,17 +5,9 @@ using System.Data;
 
 namespace pet_api.Infrastructure.DAL
 {
-    public class DatabaseContext: IDatabaseContext
+    public class DatabaseContext : IDatabaseContext
     {
-        private readonly IConfiguration _configuration;
-
-        public DatabaseContext (IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
-        public IDbConnection CreateConnection()
-        => new SqlConnection(_configuration.GetConnectionString("SqlConnection"));
-        public IDbConnection CreateMasterConnection()
-            => new SqlConnection(_configuration.GetConnectionString("MasterConnection"));
+        public SqlConnection SqlConnection { get; set; }
+        public SqlConnection MasterSqlConnection { get; set; }
     }
 }

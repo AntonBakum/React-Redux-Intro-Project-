@@ -17,7 +17,7 @@ namespace pet_api.Infrastructure.DAL.Migrations
                 {
                     Name = "Apples",
                     Description = "The best Ukrainian apples from the Vinnitsa region",
-                    Price = 8.99,
+                    Price = 9,
                     Image = "1/apple.png",
                     DateOfCreation = DateTime.Now
                 });
@@ -27,7 +27,7 @@ namespace pet_api.Infrastructure.DAL.Migrations
                 {
                     Name = "Oranges",
                     Description = "The best Geogrian oranges from the sunny city of Batumi",
-                    Price = 48.99,
+                    Price = 49,
                     Image = "2/orange.png",
                     DateOfCreation = DateTime.Now
                 });
