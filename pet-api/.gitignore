@@ -1,11 +1,7 @@
 
-**/.vs
-
 **/bin
-
-**/obj
-
 **/Properties
-
+**/obj
 *.json
 *.csproj
+**/Domain

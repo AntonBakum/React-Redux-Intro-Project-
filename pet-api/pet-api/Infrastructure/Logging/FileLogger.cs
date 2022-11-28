@@ -24,7 +24,7 @@
             {
                 return;
             }
-            lock(_lock)
+            lock (_lock)
             {
                 using (FileStream stream = File.Open(path, FileMode.Append))
                 using (StreamWriter streamWriter = new StreamWriter(stream))
