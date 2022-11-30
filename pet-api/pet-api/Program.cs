@@ -34,6 +34,7 @@ builder.Services.AddScoped<IDatabaseContext>((provider) =>
     };
 });
 builder.Services.AddScoped<Database>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 // Add services to the container.
 
 builder.Services.AddControllers();
