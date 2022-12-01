@@ -1,50 +1,46 @@
 ﻿using Dapper;
+using Microsoft.Data.SqlClient;
+using pet_api.Controllers.Models;
 using pet_api.Domain.Entities;
 using pet_api.Domain.Interfaces;
+using System.Data.Common;
 
 namespace pet_api.Infrastructure.DAL.Repositories
 {
-    public class CategoryRepository : IRepository<Category>
+    public class CategoryRepository : IRepository<Category, CategoryModel>
     {
-        private readonly IDatabaseContext _context;
-
-        public CategoryRepository(IDatabaseContext context)
+        private readonly SqlConnection _connection;
+        private readonly DbTransaction _transaction;
+        public CategoryRepository(SqlConnection connection, DbTransaction transaction)
         {
-            _context = context;
+            _connection = connection;
+            _transaction = transaction;
         }
 
-        public async Task Create(Category entity)
+        public async Task Create(CategoryModel entity)
         {
             string sqlQuery = "INSERT INTO Categories (Name, Description) VALUES (@Name, @Description)";
             var parameters = new DynamicParameters();
             parameters.Add("@Name", entity.Name);
             parameters.Add("@Description", entity.Description);
-            using (var connection = _context.SqlConnection)
-            {
-                await connection.ExecuteAsync(sqlQuery, parameters);
-            }
+            await _connection.ExecuteAsync(sqlQuery, parameters, transaction: _transaction);
         }
 
-        public async Task Delete(int id)
+        public async Task<int> Delete(int id)
         {
             string sqlQuery = "DELETE FROM Categories WHERE Id = @Id";
             var parameters = new DynamicParameters();
             parameters.Add("@Id", id);
-            using (var connection = _context.SqlConnection)
-            {
-                await connection.ExecuteAsync(sqlQuery, parameters);
-            }
+            return await _connection.ExecuteAsync(sqlQuery, parameters, transaction: _transaction);
         }
 
         public async Task<IEnumerable<Category>> GetAll()
         {
             string sqlQuery = "SELECT * FROM Categories";
             IEnumerable<Category> categories;
-            using (var connection = _context.SqlConnection)
-            {
-                categories = await connection.QueryAsync<Category>(sqlQuery);
-                return categories;
-            }
+            categories = await _connection.QueryAsync<Category>(sqlQuery, transaction: _transaction);
+            return categories;
+
         }
 
         public async Task<Category> GetById(int id)
@@ -53,24 +49,18 @@ namespace pet_api.Infrastructure.DAL.Repositories
             Category category;
             var parameters = new DynamicParameters();
             parameters.Add("@Id", id);
-            using (var connection = _context.SqlConnection)
-            {
-                category = await connection.QuerySingleOrDefaultAsync<Category>(sqlQuery, parameters);
-                return category;
-            }
+            category = await _connection.QuerySingleOrDefaultAsync<Category>(sqlQuery, parameters, transaction: _transaction);
+            return category;
         }
 
-        public async Task Update(int id, Category entity)
+        public async Task<int> Update(int id, CategoryModel entity)
         {
             var parameters = new DynamicParameters();
             string sqlQuery = "UPDATE Categories SET Name = @Name, Description = @Description WHERE Id = @Id";
             parameters.Add("@Id", id);
             parameters.Add("@Name", entity.Name);
             parameters.Add("@Description", entity.Description);
-            using (var connection = _context.SqlConnection)
-            {
-                await connection.ExecuteAsync(sqlQuery, parameters);
-            }
+            return await _connection.ExecuteAsync(sqlQuery, parameters, transaction: _transaction);
         }
 
     }
