@@ -4,4 +4,9 @@
 **/obj
 *.json
 *.csproj
-**/Domain
+**/vs
+*.vsidx
+**/ProjectEvaluation
+*.v2
+*.lock
+*.suo

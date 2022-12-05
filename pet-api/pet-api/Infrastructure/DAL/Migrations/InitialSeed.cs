@@ -12,7 +12,7 @@ namespace pet_api.Infrastructure.DAL.Migrations
 
         public override void Up()
         {
-            Insert.IntoTable("Product")
+            Insert.IntoTable("Products")
                 .Row(new
                 {
                     Name = "Apples",
@@ -22,7 +22,7 @@ namespace pet_api.Infrastructure.DAL.Migrations
                     DateOfCreation = DateTime.Now
                 });
 
-            Insert.IntoTable("Product")
+            Insert.IntoTable("Products")
                 .Row(new
                 {
                     Name = "Oranges",
@@ -32,7 +32,7 @@ namespace pet_api.Infrastructure.DAL.Migrations
                     DateOfCreation = DateTime.Now
                 });
 
-            Insert.IntoTable("ProductFeedback")
+            Insert.IntoTable("ProductFeedbacks")
                 .Row(new
                 {
                     Content = "This is the best apples in my life, it`s very tasty!",
@@ -40,7 +40,7 @@ namespace pet_api.Infrastructure.DAL.Migrations
                     DateOfPublication = DateTime.Now,
                 });
 
-            Insert.IntoTable("ProductFeedback")
+            Insert.IntoTable("ProductFeedbacks")
               .Row(new
               {
                   Content = "This is the best oranges in my life, I like Georgia and it`s residents",
@@ -48,14 +48,14 @@ namespace pet_api.Infrastructure.DAL.Migrations
                   DateOfPublication = DateTime.Now,
 
               });
-            Insert.IntoTable("Category")
+            Insert.IntoTable("Categories")
             .Row(new
             {
                 Name = "Fruits",
                 Description = "Fruits: oranges, apples etc"
 
             });
-            Insert.IntoTable("Category")
+            Insert.IntoTable("Categories")
             .Row(new
             {
                 Name = "Home chemistry",
