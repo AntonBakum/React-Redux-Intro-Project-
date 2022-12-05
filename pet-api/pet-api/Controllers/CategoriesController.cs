@@ -22,7 +22,6 @@ namespace pet_api.Controllers
             Category category;
             await _unitOfWork.BeginTransaction();
             category = await _unitOfWork.CategoryRepository.GetById(id);
-            await _unitOfWork.Commit();
             if (category != null)
             {
                 return Ok(category);
@@ -35,7 +34,6 @@ namespace pet_api.Controllers
         {
             await _unitOfWork.BeginTransaction();
             IEnumerable<Category> categories = await _unitOfWork.CategoryRepository.GetAll();
-            await _unitOfWork.Commit();
             return Ok(categories);
         }
 

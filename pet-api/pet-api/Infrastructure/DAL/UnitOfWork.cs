@@ -74,11 +74,6 @@ namespace pet_api.Infrastructure.DAL
             }
         }
 
-        /*~UnitOfWork()
-        {
-            Dispose(disposing: false);
-        }*/
-
         public void Dispose()
         {
             Dispose(disposing: true);

@@ -22,7 +22,6 @@ namespace pet_api.Controllers
         {
             await _unitOfWork.BeginTransaction();
             Product product = await _unitOfWork.ProductRepository.GetById(id);
-            await _unitOfWork.Commit();
             if (product == null)
             {
                 return NotFound();
@@ -35,7 +34,6 @@ namespace pet_api.Controllers
         {
             await _unitOfWork.BeginTransaction();
             IEnumerable<Product> products = await _unitOfWork.ProductRepository.GetByPage(productParameters);
-            await _unitOfWork.Commit();
             return Ok(products);
         }
 
