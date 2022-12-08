@@ -13,6 +13,14 @@ var builder = WebApplication.CreateBuilder(args);
 string connectionString = builder.Configuration.GetConnectionString("SqlConnection");
 string masterConnectionString = builder.Configuration.GetConnectionString("MasterConnection");
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "PetApiPolicy", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000").AllowAnyMethod().AllowAnyHeader();
+    });
+});
+
 builder.Services.AddLogging(c => c.AddFluentMigratorConsole())
 .AddFluentMigratorCore()
         .ConfigureRunner(c => c.AddSqlServer()
@@ -54,7 +62,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseRequestLogging();
 app.UseAuthorization();
-
+app.UseCors("PetApiPolicy");
 app.MapControllers();
 app.MigrateDatabase();
 app.Run();

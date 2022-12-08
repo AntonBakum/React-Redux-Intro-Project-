@@ -3,7 +3,7 @@ import axios from 'axios';
 import { ProductModel } from '../models/ProductModel';
 
 const requestUrl =
-  'https://my-json-server.typicode.com/AntonBakum/React-Redux-Intro-Project-/products';
+"https://localhost:7284/products";
 
 export const getProductsThunkAction = createAsyncThunk(
   'catalog/getProductsThunkAction',
