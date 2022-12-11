@@ -16,20 +16,20 @@ namespace pet_api.Infrastructure.DAL.Migrations
         public override void Up()
         {
             Create.Table("Products")
-               .WithColumn("Id").AsInt32().NotNullable().PrimaryKey().Identity(1, 1)
-               .WithColumn("Name").AsString(50).NotNullable()
+               .WithColumn("Id").AsInt32().NotNullable().PrimaryKey()
+               .WithColumn("Name").AsString(50).NotNullable().Unique()
                .WithColumn("Description").AsString(300).NotNullable()
                .WithColumn("Price").AsDecimal().NotNullable()
                .WithColumn("Image").AsString(100).NotNullable()
                .WithColumn("DateOfCreation").AsDateTime().NotNullable();
 
             Create.Table("Categories")
-                .WithColumn("Id").AsInt32().NotNullable().PrimaryKey().Identity(1, 1)
-                .WithColumn("Name").AsString(50).NotNullable()
+                .WithColumn("Id").AsInt32().NotNullable().PrimaryKey()
+                .WithColumn("Name").AsString(50).NotNullable().Unique()
                 .WithColumn("Description").AsString(300).NotNullable();
 
             Create.Table("ProductFeedbacks")
-                .WithColumn("Id").AsInt32().NotNullable().PrimaryKey().Identity(1, 1)
+                .WithColumn("Id").AsInt32().NotNullable().PrimaryKey()
                 .WithColumn("Content").AsString(500).NotNullable()
                 .WithColumn("DateOfPublication").AsDateTime().NotNullable()
                 .WithColumn("ProductId").AsInt32().NotNullable().ForeignKey("Products", "Id");

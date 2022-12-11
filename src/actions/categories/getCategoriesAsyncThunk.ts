@@ -3,13 +3,10 @@ import axios from 'axios';
 import { CategoryModel } from '../../models/CategoryModel';
 
 
-
-const requestUrl = "https://localhost:7284/categories"
-
 export const getCategoriesAsyncThunk = createAsyncThunk(
     'catalog/getCategoriesAsyncThunk',
      async () => {
-        const response = await axios.get(requestUrl);
-        return response.data as CategoryModel[];
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/categories`);
+        return response.data as CategoryModel [];
      }
 )

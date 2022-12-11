@@ -5,5 +5,4 @@ export interface ProductModel {
   price: number;
   image: string;
   dateOfCreation: string;
-  categories: number [];
 }

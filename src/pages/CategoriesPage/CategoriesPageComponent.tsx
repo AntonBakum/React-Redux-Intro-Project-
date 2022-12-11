@@ -1,42 +1,29 @@
-import { Button } from '@mui/material';
-import { styles } from './styles';
-import { Delete, Update, Add, GetApp } from '@mui/icons-material';
+
+import { useAppSelector } from '../../app/hooks';
+import { RootState } from '../../app/store';
 import { CategoryModel } from '../../models/CategoryModel';
+import { CreatingModalWindowContainer } from './ModalWindows/CreatingModalWindow/CreatingModalWindowContainer';
+import NavigationButtonsContainer from './NavigationButtonsComponent/NavigationButtonsContainer';
 
 interface Props {
-  onGetCategoriesClick: () => void;
   categories: CategoryModel[];
 }
+
 const CategoriesPageComponent = (props: Props) => {
+  const a = useAppSelector((state: RootState) => state.catalog.categoryIds.length)
   return (
-    <div>
-      <div style={styles.buttonsWrapper}>
-        <Button
-          sx={styles.getButton}
-          size="large"
-          startIcon={<GetApp />}
-          onClick={props.onGetCategoriesClick}
-        >
-          GET CATEGORIES
-        </Button>
-        <Button sx={styles.createButton} size="large" startIcon={<Add />}>
-          CREATE CATEGORY
-        </Button>
-        <Button sx={styles.updateButton} size="large" startIcon={<Update />}>
-          UPDATE CATEGORY
-        </Button>
-        <Button sx={styles.deleteButton} size="large" startIcon={<Delete />}>
-          DELETE CATEGORY
-        </Button>
-      </div>
+    <>
+      <NavigationButtonsContainer/>
       <div>
         <ul>
           {props.categories.map((category) => (
-            <li key={category.id}>{category.name}</li>
+            <li key={category.id}>{category.id}     {category.name}</li>
           ))}
         </ul>
+        <p>{a}</p>
       </div>
-    </div>
+      <CreatingModalWindowContainer/>
+    </>
   );
 };
 

@@ -4,7 +4,8 @@ import { getProductsThunkAction } from '../actions/getProductsThunkAction';
 import { CategoryModel } from '../models/CategoryModel';
 import { getCategoriesAsyncThunk } from '../actions/categories/getCategoriesAsyncThunk';
 import { CategoryProductModel } from '../models/CategoryProductModel';
-
+import { createCategoryAsyncThunk } from '../actions/categories/createCategoryAsyncThunk';
+import { deleteCategoryAsyncThunk } from '../actions/categories/deleteCategoryThunkAction';
 
 export interface State {
   products: {
@@ -15,7 +16,7 @@ export interface State {
  categories: {
     [categoryId: number]: CategoryModel;
   };
-  categoryIds: number[];
+  categoryIds: number [];
 
   categoryProduct: {
    [productCategoryId: number]: CategoryProductModel;
@@ -43,14 +44,30 @@ export const catalogSlice = createSlice({
         state.productsIds = action.payload.map((product) => product.id);
         state.products = action.payload;
       },
-    );
-    builder.addCase(
+    )
+    .addCase(
       getCategoriesAsyncThunk.fulfilled,
       (state, action: PayloadAction<CategoryModel[]>) => {
         state.categoryIds = action.payload.map((category) => category.id)
         state.categories = action.payload;
       },
-    );
+    )
+    .addCase(
+       createCategoryAsyncThunk.fulfilled,
+       (state, action: PayloadAction<CategoryModel>) => {  
+          const category  = action.payload;     
+          state.categories[category.id - 1] = category;
+          state.categoryIds.push(category.id);
+       },
+    )
+    .addCase(
+      deleteCategoryAsyncThunk.fulfilled,
+      (state, action: PayloadAction<number>) => {
+         const categoryId = action.payload;
+         delete state.categories[categoryId - 1];
+         state.categoryIds = state.categoryIds.filter((id) => id !== categoryId);
+      }
+    )
   },
 });
 

@@ -1,22 +1,32 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export interface State {
-  modalOpen: boolean;
+  createModalOpen: boolean;
+  updateModalOpen: boolean;
+  deleteModalOpen: boolean;
 }
 
 const initialState = {
-  modalOpen: false,
+  createModalOpen: false,
+  updateModalOpen: false,
+  deleteModalOpen: false,
 };
 
 export const modalWindowSlice = createSlice({
   name: 'modalWindow',
   initialState,
   reducers: {
-    toggleStatus(state, action) {
-      state.modalOpen = action.payload;
+    toggleCreateModalStatus(state, action) {
+      state.createModalOpen = action.payload;
+    },
+    toggleUpdateModalStatus(state, action) {
+      state.updateModalOpen = action.payload;
+    },
+    toggleDeleteModalStatus(state, action) {
+      state.deleteModalOpen = action.payload;
     },
   },
 });
 
-export const { toggleStatus } = modalWindowSlice.actions;
+export const { toggleCreateModalStatus, toggleUpdateModalStatus, toggleDeleteModalStatus} = modalWindowSlice.actions;
 export default modalWindowSlice.reducer;

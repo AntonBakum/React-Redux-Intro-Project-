@@ -1,13 +1,14 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import sidebarReducer from '../slices/sidebarSlice';
 import catalogReducer from '../slices/catalogSlice';
-import modalWindowSlice from '../slices/modalWindowSlice';
+import modalWindowReducer from '../slices/modalWindowSlice'
+
 
 export const store = configureStore({
   reducer: {
     sidebar: sidebarReducer,
     catalog: catalogReducer,
-    modalWindow: modalWindowSlice,
+    modalWindow: modalWindowReducer,
   },
 });
 
