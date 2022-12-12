@@ -1,11 +1,11 @@
 import axios from 'axios';
-import { CategoryModel } from '../models/CategoryModel';
+import { CreateCategoryModel } from '../models/categories/CreateCategoryModel';
 
 export const GetCategories = () => {
     return axios.get(`${process.env.REACT_APP_API_URL}/api/categories`);
 }
 
-export const CreateCategory = (category: CategoryModel) => {
+export const CreateCategory = (category: CreateCategoryModel) => {
     return axios.post(`${process.env.REACT_APP_API_URL}/api/categories`, category);
 }
 

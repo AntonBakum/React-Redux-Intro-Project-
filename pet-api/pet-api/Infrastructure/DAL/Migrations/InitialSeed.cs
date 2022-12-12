@@ -15,7 +15,6 @@ namespace pet_api.Infrastructure.DAL.Migrations
             Insert.IntoTable("Products")
                 .Row(new
                 {
-                    Id = 1,
                     Name = "Apples",
                     Description = "The best Ukrainian apples from the Vinnitsa region",
                     Price = 9,
@@ -26,7 +25,6 @@ namespace pet_api.Infrastructure.DAL.Migrations
             Insert.IntoTable("Products")
                 .Row(new
                 {
-                    Id = 2,
                     Name = "Oranges",
                     Description = "The best Geogrian oranges from the sunny city of Batumi",
                     Price = 49,
@@ -37,7 +35,6 @@ namespace pet_api.Infrastructure.DAL.Migrations
             Insert.IntoTable("ProductFeedbacks")
                 .Row(new
                 {
-                    Id = 1,
                     Content = "This is the best apples in my life, it`s very tasty!",
                     ProductId = 1,
                     DateOfPublication = DateTime.Now,
@@ -46,7 +43,6 @@ namespace pet_api.Infrastructure.DAL.Migrations
             Insert.IntoTable("ProductFeedbacks")
               .Row(new
               {
-                  Id = 2,
                   Content = "This is the best oranges in my life, I like Georgia and it`s residents",
                   ProductId = 2,
                   DateOfPublication = DateTime.Now,
@@ -55,7 +51,6 @@ namespace pet_api.Infrastructure.DAL.Migrations
             Insert.IntoTable("Categories")
             .Row(new
             {
-                Id = 1,
                 Name = "Fruits",
                 Description = "Fruits: oranges, apples etc"
 
@@ -63,7 +58,6 @@ namespace pet_api.Infrastructure.DAL.Migrations
             Insert.IntoTable("Categories")
             .Row(new
             {
-                Id = 2,
                 Name = "Home chemistry",
                 Description = "Things for cleaning in the house"
             });

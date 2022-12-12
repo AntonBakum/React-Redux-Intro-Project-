@@ -41,9 +41,9 @@ namespace pet_api.Controllers
         public async Task<ActionResult<HttpResponse>> CreateCategory([FromBody] CategoryModel category)
         {
             await _unitOfWork.BeginTransaction();
-            await _unitOfWork.CategoryRepository.Create(category);
+            int id = await _unitOfWork.CategoryRepository.Create(category);
             await _unitOfWork.Commit();
-            return Ok();
+            return Ok(id);
         }
 
         [HttpPut("{id:int}")]

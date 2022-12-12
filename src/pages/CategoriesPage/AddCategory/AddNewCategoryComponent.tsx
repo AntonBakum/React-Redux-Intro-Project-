@@ -9,7 +9,7 @@ import TextField from '@mui/material/TextField';
 import { useFormik } from 'formik';
 import { createCategoryThunkAction } from '../../../actions/categories/createCategoryThunkAction';
 import { useAppDispatch} from '../../../app/hooks';
-import { CategoryModel } from '../../../models/CategoryModel';
+import { CreateCategoryModel } from '../../../models/categories/CreateCategoryModel';
 import { deleteValidationSchema } from '../../../validationSchemas/deleteValidationSchema';
 import { styles } from './styles';
 
@@ -23,12 +23,10 @@ const AddNewCategoryComponent = (props: Props) => {
   const dispatch = useAppDispatch();
   const formik = useFormik({
     initialValues: {
-      id: 0,
       name: '',
       description: '',
     },
-    onSubmit: (values: CategoryModel) => {
-      values.id = props.newCategoryId;
+    onSubmit: (values: CreateCategoryModel) => {
       dispatch(createCategoryThunkAction(values));
     },
     validationSchema: deleteValidationSchema

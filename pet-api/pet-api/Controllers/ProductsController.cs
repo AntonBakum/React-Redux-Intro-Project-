@@ -41,9 +41,9 @@ namespace pet_api.Controllers
         public async Task<ActionResult<HttpResponse>> CreateProduct([FromBody] ProductModel product)
         {
             await _unitOfWork.BeginTransaction();
-            await _unitOfWork.ProductRepository.Create(product);
+            int id = await _unitOfWork.ProductRepository.Create(product);
             await _unitOfWork.Commit();
-            return Ok();
+            return Ok(id);
         }
 
         [HttpPut("{id:int}")]

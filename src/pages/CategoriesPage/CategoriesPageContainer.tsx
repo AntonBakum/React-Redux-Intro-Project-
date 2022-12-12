@@ -1,6 +1,6 @@
 import { useAppSelector } from '../../app/hooks';
 import { RootState } from '../../app/store';
-import { CategoryModel } from '../../models/CategoryModel';
+import { CategoryModel } from '../../models/categories/CategoryModel';
 import CategoriesPageComponent from './CategoriesPageComponent';
 
 export const CategoriesPageContainer = () => {

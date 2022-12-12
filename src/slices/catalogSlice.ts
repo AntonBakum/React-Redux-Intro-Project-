@@ -1,11 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ProductModel } from '../models/ProductModel';
 import { getProductsThunkAction } from '../actions/getProductsThunkAction';
-import { CategoryModel } from '../models/CategoryModel';
+import { CategoryModel } from '../models/categories/CategoryModel';
 import { CategoryProductModel } from '../models/CategoryProductModel';
-import { createCategoryThunkAction } from '../actions/categories/createCategoryThunkAction';
 import { deleteCategoryThunkAction } from '../actions/categories/deleteCategoryThunkAction';
 import { getCategoriesThunkAction } from '../actions/categories/getCategoriesThunkAction';
+import { CreateCategoryModel } from '../models/categories/CreateCategoryModel';
+import { createCategoryThunkAction } from '../actions/categories/createCategoryThunkAction';
 
 export interface State {
   products: {
@@ -59,9 +60,9 @@ export const catalogSlice = createSlice({
     .addCase(
        createCategoryThunkAction.fulfilled,
        (state, action: PayloadAction<CategoryModel>) => {  
-          const category  = action.payload;     
-          state.categories[category.id] = category;
-          state.categoryIds.push(category.id);
+           const category = action.payload;
+           state.categories[category.id] = category;
+           state.categoryIds.push(category.id);
        },
     )
     .addCase(
