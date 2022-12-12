@@ -8,10 +8,8 @@ export const AddNewCategoryContainer = () => {
   const createModalOpen = useAppSelector(
     (state: RootState) => state.modalWindow.createModalOpen,
   );
-  const newCategoryId = useAppSelector((state: RootState) => state.catalog.categoryIds.length + 1);
 
   return <AddNewCategoryComponent createModalOpen={createModalOpen} 
   onToggleCreateStatusClick = {() => dispatch(toggleCreateModalStatus(!createModalOpen))}
-    newCategoryId = {newCategoryId}
   />;
 };

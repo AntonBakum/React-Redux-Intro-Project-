@@ -16,7 +16,6 @@ import { styles } from './styles';
 interface Props {
   createModalOpen: boolean;
   onToggleCreateStatusClick: () => void;
-  newCategoryId: number;
 }
 
 const AddNewCategoryComponent = (props: Props) => {
