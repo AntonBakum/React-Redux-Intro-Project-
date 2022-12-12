@@ -20,7 +20,7 @@ namespace pet_api.Infrastructure.DAL.Repositories
             _transaction = transaction;
         }
 
-        public async Task Create(ProductModel entity)
+        public async Task<int> Create(ProductModel entity)
         {
             string sqlQuery = "INSERT INTO Products (Name, Description, Price, Image, DateOfCreation) OUTPUT INSERTED.Id" +
                 "VALUES (@Name, @Description, @Price, @Image, @DateOfCreation)";

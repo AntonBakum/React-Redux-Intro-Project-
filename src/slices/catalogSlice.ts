@@ -5,7 +5,6 @@ import { CategoryModel } from '../models/categories/CategoryModel';
 import { CategoryProductModel } from '../models/CategoryProductModel';
 import { deleteCategoryThunkAction } from '../actions/categories/deleteCategoryThunkAction';
 import { getCategoriesThunkAction } from '../actions/categories/getCategoriesThunkAction';
-import { CreateCategoryModel } from '../models/categories/CreateCategoryModel';
 import { createCategoryThunkAction } from '../actions/categories/createCategoryThunkAction';
 
 export interface State {
