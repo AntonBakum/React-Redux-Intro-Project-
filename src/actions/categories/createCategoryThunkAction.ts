@@ -13,6 +13,6 @@ export const createCategoryThunkAction = createAsyncThunk(
       name: createCategory.name,
       description: createCategory.description,
     };
-    return category as CategoryModel;
+    return category;
   },
 );
