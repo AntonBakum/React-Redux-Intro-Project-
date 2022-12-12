@@ -5,7 +5,7 @@ import ProductsListComponent from './ProductsListComponent';
 
 const ProductsListContainer = () => {
   const products: ProductModel[] = useAppSelector((state: RootState) =>
-    state.catalog.productsIds.map((id) => state.catalog.products[id - 1]),
+    state.catalog.productsIds.map((id) => state.catalog.products[id]),
   );
   return (
     <>

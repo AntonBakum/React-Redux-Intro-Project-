@@ -2,10 +2,10 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ProductModel } from '../models/ProductModel';
 import { getProductsThunkAction } from '../actions/getProductsThunkAction';
 import { CategoryModel } from '../models/CategoryModel';
-import { getCategoriesAsyncThunk } from '../actions/categories/getCategoriesAsyncThunk';
 import { CategoryProductModel } from '../models/CategoryProductModel';
-import { createCategoryAsyncThunk } from '../actions/categories/createCategoryAsyncThunk';
-import { deleteCategoryAsyncThunk } from '../actions/categories/deleteCategoryThunkAction';
+import { createCategoryThunkAction } from '../actions/categories/createCategoryThunkAction';
+import { deleteCategoryThunkAction } from '../actions/categories/deleteCategoryThunkAction';
+import { getCategoriesThunkAction } from '../actions/categories/getCategoriesThunkAction';
 
 export interface State {
   products: {
@@ -42,29 +42,33 @@ export const catalogSlice = createSlice({
       getProductsThunkAction.fulfilled,
       (state, action: PayloadAction<ProductModel[]>) => {
         state.productsIds = action.payload.map((product) => product.id);
-        state.products = action.payload;
+        action.payload.forEach((product) => {
+          state.products[product.id] = product;
+        })
       },
     )
     .addCase(
-      getCategoriesAsyncThunk.fulfilled,
+      getCategoriesThunkAction.fulfilled,
       (state, action: PayloadAction<CategoryModel[]>) => {
         state.categoryIds = action.payload.map((category) => category.id)
-        state.categories = action.payload;
+        action.payload.forEach((category) => {
+          state.categories[category.id] = category;
+        })
       },
     )
     .addCase(
-       createCategoryAsyncThunk.fulfilled,
+       createCategoryThunkAction.fulfilled,
        (state, action: PayloadAction<CategoryModel>) => {  
           const category  = action.payload;     
-          state.categories[category.id - 1] = category;
+          state.categories[category.id] = category;
           state.categoryIds.push(category.id);
        },
     )
     .addCase(
-      deleteCategoryAsyncThunk.fulfilled,
+      deleteCategoryThunkAction.fulfilled,
       (state, action: PayloadAction<number>) => {
          const categoryId = action.payload;
-         delete state.categories[categoryId - 1];
+         delete state.categories[categoryId];
          state.categoryIds = state.categoryIds.filter((id) => id !== categoryId);
       }
     )

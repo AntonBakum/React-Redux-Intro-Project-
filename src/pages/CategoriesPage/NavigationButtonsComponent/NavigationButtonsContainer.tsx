@@ -1,4 +1,4 @@
-import { getCategoriesAsyncThunk } from '../../../actions/categories/getCategoriesAsyncThunk';
+import { getCategoriesThunkAction } from '../../../actions/categories/getCategoriesThunkAction';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import { RootState } from '../../../app/store';
 import { toggleCreateModalStatus } from '../../../slices/modalWindowSlice';
@@ -9,7 +9,7 @@ const NavigationButtonsContainer = () => {
   const createModalOpen = useAppSelector(
     (state: RootState) => state.modalWindow.createModalOpen,
   );
-  return <NavigationButtonsComponent onGetCategoriesClick={() => dispatch(getCategoriesAsyncThunk())} 
+  return <NavigationButtonsComponent onGetCategoriesClick={() => dispatch(getCategoriesThunkAction())} 
     onToggleCreateStatusClick = {() => dispatch(toggleCreateModalStatus(!createModalOpen))} />
 }
 

@@ -5,7 +5,7 @@ import CategoriesPageComponent from './CategoriesPageComponent';
 
 export const CategoriesPageContainer = () => {
   const categories: CategoryModel[] = useAppSelector((state: RootState) =>
-    state.catalog.categoryIds.map((id) => state.catalog.categories[id as number - 1])
+    state.catalog.categoryIds.map((id) => state.catalog.categories[id])
   );
   return (
     <CategoriesPageComponent

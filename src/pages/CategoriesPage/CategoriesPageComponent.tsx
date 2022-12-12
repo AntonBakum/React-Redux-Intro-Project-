@@ -1,8 +1,7 @@
-
 import { useAppSelector } from '../../app/hooks';
 import { RootState } from '../../app/store';
 import { CategoryModel } from '../../models/CategoryModel';
-import { CreatingModalWindowContainer } from './ModalWindows/CreatingModalWindow/CreatingModalWindowContainer';
+import { AddNewCategoryContainer } from './AddCategory/AddNewCategoryContainer';
 import NavigationButtonsContainer from './NavigationButtonsComponent/NavigationButtonsContainer';
 
 interface Props {
@@ -22,7 +21,7 @@ const CategoriesPageComponent = (props: Props) => {
         </ul>
         <p>{a}</p>
       </div>
-      <CreatingModalWindowContainer/>
+      <AddNewCategoryContainer/>
     </>
   );
 };

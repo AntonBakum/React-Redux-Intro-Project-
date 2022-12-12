@@ -7,10 +7,10 @@ import {
 } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import { useFormik } from 'formik';
-import { createCategoryAsyncThunk } from '../../../../actions/categories/createCategoryAsyncThunk';
-import { useAppDispatch} from '../../../../app/hooks';
-import { CategoryModel } from '../../../../models/CategoryModel';
-import { deleteValidationSchema } from '../../../../validationSchemas/deleteValidationSchema';
+import { createCategoryThunkAction } from '../../../actions/categories/createCategoryThunkAction';
+import { useAppDispatch} from '../../../app/hooks';
+import { CategoryModel } from '../../../models/CategoryModel';
+import { deleteValidationSchema } from '../../../validationSchemas/deleteValidationSchema';
 import { styles } from './styles';
 
 interface Props {
@@ -19,7 +19,7 @@ interface Props {
   newCategoryId: number;
 }
 
-const CreatingModalWindowComponent = (props: Props) => {
+const AddNewCategoryComponent = (props: Props) => {
   const dispatch = useAppDispatch();
   const formik = useFormik({
     initialValues: {
@@ -29,7 +29,7 @@ const CreatingModalWindowComponent = (props: Props) => {
     },
     onSubmit: (values: CategoryModel) => {
       values.id = props.newCategoryId;
-      dispatch(createCategoryAsyncThunk(values));
+      dispatch(createCategoryThunkAction(values));
     },
     validationSchema: deleteValidationSchema
   });
@@ -87,4 +87,4 @@ const CreatingModalWindowComponent = (props: Props) => {
   );
 };
 
-export default CreatingModalWindowComponent;
+export default AddNewCategoryComponent;

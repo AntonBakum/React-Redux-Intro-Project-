@@ -1,14 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-import { CategoryModel } from '../../models/CategoryModel';
+import { categoriesAPIService } from '../../services/categoriesAPIService';
 
-
-
-
-export const deleteCategoryAsyncThunk = createAsyncThunk(
-    "catalog/deleteCategoryAsyncThunk",
+export const deleteCategoryThunkAction = createAsyncThunk(
+    "catalog/deleteCategoryThunkAction",
     async(id: number) => {
-        const response = await axios.delete(`${process.env.REACT_APP_API_URL}/api/categories/${id}`)
+        const response = await categoriesAPIService.DeleteCategory(id);
         return id as number;
     }
 
