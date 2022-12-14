@@ -36,8 +36,8 @@ const HeaderComponent = (props: Props) => {
         >
           <MenuIcon />
         </IconButton>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Products List
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1, display: "flex", justifyContent: "center" }}>
+          GLOBAL LOGIC INTERNSHIP
         </Typography>
         <IconButton color="inherit">
           <Badge badgeContent={4} color="secondary">

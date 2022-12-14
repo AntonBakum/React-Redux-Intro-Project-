@@ -6,45 +6,36 @@ import {
   Button,
 } from '@mui/material';
 import TextField from '@mui/material/TextField';
-import { useFormik } from 'formik';
-import { createCategoryThunkAction } from '../../../actions/categories/createCategoryThunkAction';
-import { useAppDispatch} from '../../../app/hooks';
+import { Formik } from 'formik';
 import { CreateCategoryModel } from '../../../models/categories/CreateCategoryModel';
-import { deleteValidationSchema } from '../../../validationSchemas/deleteValidationSchema';
-import { styles } from './styles';
+import { createValidationSchema } from '../../../validationSchemas/createValidationSchema';
+import { styles } from '../styles';
 
 interface Props {
   createModalOpen: boolean;
+  onSubmit: (values: CreateCategoryModel) => void;
   onToggleCreateStatusClick: () => void;
 }
 
 const AddNewCategoryComponent = (props: Props) => {
-  const dispatch = useAppDispatch();
-  const formik = useFormik({
-    initialValues: {
-      name: '',
-      description: '',
-    },
-    onSubmit: (values: CreateCategoryModel) => {
-      dispatch(createCategoryThunkAction(values));
-    },
-    validationSchema: deleteValidationSchema
-  });
   return (
-    <>
-      <Dialog open={props.createModalOpen}>
-        <DialogTitle sx={styles.dialogTitle}>CREATE CATEGORY</DialogTitle>
-        <DialogContent>
-          <form onSubmit={formik.handleSubmit}>
+    <Dialog open={props.createModalOpen}>
+      <DialogTitle sx={styles.dialogTitle}>CREATE CATEGORY</DialogTitle>
+      <DialogContent>
+        <Formik initialValues={{
+          name: '',
+          description: '',
+        }} validationSchema = {createValidationSchema} onSubmit = {(values: CreateCategoryModel) => { props.onSubmit(values)}}>
+          { formProps => (<form onSubmit={formProps.handleSubmit}>
             <div style={styles.fieldsWrapper}>
               <TextField
                 id="name"
                 label="Category Name"
                 variant="outlined"
-                onChange={formik.handleChange}
-                value={formik.values.name}
-                error={formik.touched.name && Boolean(formik.errors.name)}
-                helperText={formik.touched.name && formik.errors.name}
+                onChange={formProps.handleChange}
+                value={formProps.values.name}
+                error={formProps.touched.name && Boolean(formProps.errors.name)}
+                helperText={formProps.touched.name && formProps.errors.name}
               />
             </div>
             <div style={styles.fieldsWrapper}>
@@ -52,10 +43,15 @@ const AddNewCategoryComponent = (props: Props) => {
                 id="description"
                 label="Description"
                 variant="outlined"
-                onChange={formik.handleChange}
-                value={formik.values.description}
-                error={formik.touched.description && Boolean(formik.errors.description)}
-                helperText={formik.touched.description && formik.errors.description}              
+                onChange={formProps.handleChange}
+                value={formProps.values.description}
+                error={
+                  formProps.touched.description &&
+                  Boolean(formProps.errors.description)
+                }
+                helperText={
+                  formProps.touched.description && formProps.errors.description
+                }
               />
             </div>
             <Grid container>
@@ -77,10 +73,10 @@ const AddNewCategoryComponent = (props: Props) => {
                 </div>
               </Grid>
             </Grid>
-          </form>
-        </DialogContent>
-      </Dialog>
-    </>
+          </form>) }
+        </Formik>
+      </DialogContent>
+    </Dialog>
   );
 };
 

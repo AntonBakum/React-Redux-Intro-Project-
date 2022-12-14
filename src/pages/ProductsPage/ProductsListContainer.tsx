@@ -7,11 +7,7 @@ const ProductsListContainer = () => {
   const products: ProductModel[] = useAppSelector((state: RootState) =>
     state.catalog.productsIds.map((id) => state.catalog.products[id]),
   );
-  return (
-    <>
-      <ProductsListComponent products={products} />
-    </>
-  );
+  return <ProductsListComponent products={products} />
 };
 
 export default ProductsListContainer;

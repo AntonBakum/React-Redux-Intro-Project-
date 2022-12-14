@@ -1,11 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { categoriesAPIService } from '../../services/categoriesAPIService';
 import { CategoryModel } from '../../models/categories/CategoryModel';
+import { CategoriesAPIService } from '../../services/categoriesAPIService';
 
 export const getCategoriesThunkAction = createAsyncThunk(
     'catalog/getCategoriesThunkAction',
      async () => {
-        const categories = await categoriesAPIService.GetCategories();
+        const categories = await CategoriesAPIService.getCategories();
         return categories.data as CategoryModel [];
      }
 )

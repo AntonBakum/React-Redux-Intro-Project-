@@ -1,26 +1,12 @@
-import { useAppSelector } from '../../app/hooks';
-import { RootState } from '../../app/store';
-import { CategoryModel } from '../../models/categories/CategoryModel';
-import { AddNewCategoryContainer } from './AddCategory/AddNewCategoryContainer';
+import AddNewCategoryContainer from './AddCategory/AddNewCategoryContainer';
 import NavigationButtonsContainer from './NavigationButtonsComponent/NavigationButtonsContainer';
+import CategoriesTableContainer from './Table/CategoriesTableContainer';
 
-interface Props {
-  categories: CategoryModel[];
-}
-
-const CategoriesPageComponent = (props: Props) => {
-  const a = useAppSelector((state: RootState) => state.catalog.categoryIds.length)
+const CategoriesPageComponent = () => {
   return (
     <>
-      <NavigationButtonsContainer/>
-      <div>
-        <ul>
-          {props.categories.map((category) => (
-            <li key={category.id}>{category.id}     {category.name}</li>
-          ))}
-        </ul>
-        <p>{a}</p>
-      </div>
+      <NavigationButtonsContainer />
+      <CategoriesTableContainer />
       <AddNewCategoryContainer/>
     </>
   );

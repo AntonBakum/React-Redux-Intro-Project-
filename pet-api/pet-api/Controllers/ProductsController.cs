@@ -38,7 +38,7 @@ namespace pet_api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<HttpResponse>> CreateProduct([FromBody] ProductModel product)
+        public async Task<ActionResult<int>> CreateProduct([FromBody] ProductModel product)
         {
             await _unitOfWork.BeginTransaction();
             int id = await _unitOfWork.ProductRepository.Create(product);

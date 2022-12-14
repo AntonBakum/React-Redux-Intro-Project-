@@ -2,8 +2,9 @@ import { SxProps } from '@mui/material';
 
 export const buttonsWrapper = {
     display: "flex",
-    justifyContent: "flex-end",
-    margin: "3vh"
+    justifyContent: "center",
+    margin: "5vh",
+    paddingRight: "10vw",
 }
 export const getButton: SxProps = {
     backgroundColor: "#EF9A53",

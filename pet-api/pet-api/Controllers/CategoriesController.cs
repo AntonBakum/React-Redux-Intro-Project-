@@ -38,7 +38,7 @@ namespace pet_api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<HttpResponse>> CreateCategory([FromBody] CategoryModel category)
+        public async Task<ActionResult<int>> CreateCategory([FromBody] CategoryModel category)
         {
             await _unitOfWork.BeginTransaction();
             int id = await _unitOfWork.CategoryRepository.Create(category);
