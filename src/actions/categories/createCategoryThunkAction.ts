@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { CategoryModel } from '../../models/categories/CategoryModel';
 import { CreateCategoryModel } from '../../models/categories/CreateCategoryModel';
-import { CategoriesAPIService } from '../../services/categoriesAPIService';
+import { CategoriesAPIService } from '../../services';
 
 export const createCategoryThunkAction = createAsyncThunk(
   'catalog/createCategoryThunkAction',

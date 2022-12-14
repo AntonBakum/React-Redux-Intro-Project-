@@ -12,5 +12,3 @@ export const createCategory = (category: CreateCategoryModel) => {
 export const deleteCategory = (id: number) => {
     return axios.delete(`${process.env.REACT_APP_API_URL}/api/categories/${id}`);
 }
-
-export * as CategoriesAPIService from './categoriesAPIService';
