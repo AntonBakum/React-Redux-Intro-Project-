@@ -1,6 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { CategoriesAPIService } from '../../services/categoriesAPIService';
-
+import { CategoriesAPIService } from '../../services';
 
 export const deleteCategoryThunkAction = createAsyncThunk(
     "catalog/deleteCategoryThunkAction",
