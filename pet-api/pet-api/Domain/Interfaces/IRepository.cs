@@ -10,7 +10,7 @@
 
         Task<int> Delete(int id);
 
-        Task Create(U entity);
+        Task<int> Create(U entity);
 
     }
 }

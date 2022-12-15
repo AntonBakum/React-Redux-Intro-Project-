@@ -20,9 +20,9 @@ namespace pet_api.Infrastructure.DAL.Repositories
             _transaction = transaction;
         }
 
-        public async Task Create(ProductModel entity)
+        public async Task<int> Create(ProductModel entity)
         {
-            string sqlQuery = "INSERT INTO Products (Name, Description, Price, Image, DateOfCreation) " +
+            string sqlQuery = "INSERT INTO Products (Name, Description, Price, Image, DateOfCreation) OUTPUT INSERTED.Id" +
                 "VALUES (@Name, @Description, @Price, @Image, @DateOfCreation)";
             var parameters = new DynamicParameters();
             parameters.Add("@Name", entity.Name);
@@ -30,7 +30,7 @@ namespace pet_api.Infrastructure.DAL.Repositories
             parameters.Add("@Price", entity.Price);
             parameters.Add("@Image", entity.Image);
             parameters.Add("@DateOfCreation", entity.DateOfCreation);
-            await _connection.ExecuteAsync(sqlQuery, parameters, transaction: _transaction);
+            return await _connection.ExecuteScalarAsync<int>(sqlQuery, parameters, transaction: _transaction);
         }
 
         public async Task<int> Delete(int id)

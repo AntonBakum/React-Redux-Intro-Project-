@@ -1,14 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 import { ProductModel } from '../models/ProductModel';
-
-const requestUrl =
-  'https://my-json-server.typicode.com/AntonBakum/React-Redux-Intro-Project-/products';
+import { ProductsAPIService } from '../services';
 
 export const getProductsThunkAction = createAsyncThunk(
   'catalog/getProductsThunkAction',
   async () => {
-    const response = await axios.get(requestUrl);
-    return response.data as ProductModel [];
+    const products = await ProductsAPIService.getProducts();
+    return products.data as ProductModel[];
   },
 );

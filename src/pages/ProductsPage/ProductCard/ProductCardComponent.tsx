@@ -21,6 +21,7 @@ import { styles } from './styles';
 
 interface Props {
   product: ProductModel;
+  key: number;
 }
 
 const ProductCardComponent = (props: Props) => {
@@ -38,13 +39,6 @@ const ProductCardComponent = (props: Props) => {
             <Typography gutterBottom variant="h5" sx={styles.productName}>
               {props.product.name}
             </Typography>
-          </Grid>
-          <Grid item xs={6}>
-            <Box display="flex" justifyContent="flex-end">
-              <Avatar sx={styles.productSaleAvatar} aria-label="sale">
-                {`-${props.product.sale}`}
-              </Avatar>
-            </Box>
           </Grid>
         </Grid>
       </Grid>
@@ -77,7 +71,7 @@ const ProductCardComponent = (props: Props) => {
           </Grid>
         </Grid>
         <Box display="flex" justifyContent="flex-end" sx={styles.productDate}>
-          {props.product.createdDate}
+          {props.product.dateOfCreation}
         </Box>
         <Grid container>
           <Grid item xs={12}>

@@ -11,7 +11,7 @@ export const sideBarItems = [
   },
   {
     id: 3,
-    title: 'Page Two',
-    route: 'page2',
+    title: 'Categories Page',
+    route: 'categories',
   },
 ];

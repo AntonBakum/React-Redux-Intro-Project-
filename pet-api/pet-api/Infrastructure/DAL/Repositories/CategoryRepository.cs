@@ -17,13 +17,13 @@ namespace pet_api.Infrastructure.DAL.Repositories
             _transaction = transaction;
         }
 
-        public async Task Create(CategoryModel entity)
+        public async Task<int> Create(CategoryModel entity)
         {
-            string sqlQuery = "INSERT INTO Categories (Name, Description) VALUES (@Name, @Description)";
+            string sqlQuery = "INSERT INTO Categories (Name, Description) OUTPUT INSERTED.Id VALUES (@Name, @Description)";
             var parameters = new DynamicParameters();
             parameters.Add("@Name", entity.Name);
             parameters.Add("@Description", entity.Description);
-            await _connection.ExecuteAsync(sqlQuery, parameters, transaction: _transaction);
+            return await _connection.ExecuteScalarAsync<int>(sqlQuery, parameters, transaction: _transaction);
         }
 
         public async Task<int> Delete(int id)

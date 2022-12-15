@@ -11,7 +11,7 @@ const ProductsListComponent = (props: Props) => {
     <Grid container spacing={1}>
       {props.products.map((product) => (
         <Grid item xs={4}>
-          <ProductCardComponent product={product} />
+          <ProductCardComponent key={product.id} product={product} />
         </Grid>
       ))}
     </Grid>
