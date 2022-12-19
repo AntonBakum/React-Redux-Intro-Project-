@@ -12,22 +12,26 @@ import { validationSchema } from '../../../validationSchemas/validationSchema';
 import { styles } from '../styles';
 
 interface Props {
-  createModalOpen: boolean;
+  updateModalOpen: boolean;
+  onToggleUpdateStatusClick: () => void;
   onSubmit: (values: CreateUpdateCategoryModel) => void;
-  onToggleCreateStatusClick: () => void;
+  name: string;
+  description: string;
 }
 
-const AddNewCategoryComponent = (props: Props) => {
+const UpdateCategoryComponent = (props: Props) => {
   return (
-    <Dialog open={props.createModalOpen}>
+    <Dialog open={props.updateModalOpen}>
       <div style={styles.dialogTitleWrapper}>
-        <DialogTitle sx={styles.dialogTitle}>Click on the confirmation button to create the category</DialogTitle>
+        <DialogTitle sx={styles.dialogTitle}>
+          Click on the confirmation button to update the category
+        </DialogTitle>
       </div>
       <DialogContent>
         <Formik
           initialValues={{
-            name: '',
-            description: '',
+            name: props.name,
+            description: props.description,
           }}
           validationSchema={validationSchema}
           onSubmit={(values: CreateUpdateCategoryModel) => {
@@ -71,9 +75,9 @@ const AddNewCategoryComponent = (props: Props) => {
                   <div style={styles.buttonsWrapper}>
                     <Button
                       sx={styles.closeButton}
-                      onClick={props.onToggleCreateStatusClick}
+                      onClick={props.onToggleUpdateStatusClick}
                     >
-                      Close
+                      Cancel
                     </Button>
                   </div>
                 </Grid>
@@ -93,4 +97,4 @@ const AddNewCategoryComponent = (props: Props) => {
   );
 };
 
-export default AddNewCategoryComponent;
+export default UpdateCategoryComponent;
