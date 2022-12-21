@@ -2,7 +2,12 @@
 
 # dependencies
 node_modules
-**/pet-api
+
+#**/pet-api
+**/.vs
+**/bin
+**/obj
+
 /.pnp
 .pnp.js
 **/LogFiles
