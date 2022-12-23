@@ -1,7 +1,9 @@
 import {
   Button,
   Dialog,
+  DialogActions,
   DialogContent,
+  DialogContentText,
   DialogTitle,
   Grid,
 } from '@mui/material';
@@ -16,32 +18,29 @@ interface Props {
 const DeleteCategoryComponent = (props: Props) => {
   return (
     <Dialog open={props.deleteModalOpen}>
-      <div style = {styles.dialogTitleWrapper}>
-        <DialogTitle style={styles.dialogTitle}>
-          Click on the confirmation button to delete the category
-        </DialogTitle>
-      </div>
+      <DialogTitle sx = {styles.dialogTitle}>
+         DELETE CATEGORY
+      </DialogTitle>
       <DialogContent>
-        <Grid container>
+        <DialogContentText sx = {styles.dialogContentText}>Click on the confirmation button to delete the category </DialogContentText>
+      </DialogContent>
+      <DialogActions>
+        <Grid container spacing={2} sx = {styles.buttonsContainer}>
           <Grid item xs={6}>
-            <div style={styles.buttonsWrapper}>
-              <Button
-                sx={styles.closeButton}
-                onClick={props.onToggleDeleteStatusClick}
-              >
-                Close
-              </Button>
-            </div>
+            <Button
+              sx={styles.closeButton}
+              onClick={props.onToggleDeleteStatusClick}
+            >
+              Close
+            </Button>
           </Grid>
           <Grid item xs={6}>
-            <div style={styles.buttonsWrapper}>
-              <Button sx={styles.confirmButton} onClick={props.onSubmit}>
-                Confirm
-              </Button>
-            </div>
+            <Button sx={styles.confirmButton} onClick={props.onSubmit}>
+              Confirm
+            </Button>
           </Grid>
         </Grid>
-      </DialogContent>
+      </DialogActions>
     </Dialog>
   );
 };

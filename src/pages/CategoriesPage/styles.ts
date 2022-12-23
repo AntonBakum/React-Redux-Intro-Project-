@@ -1,18 +1,25 @@
 
-export const dialogTitle = {
-    fontWeight: "bolder",
-}
-
 export const fieldsWrapper = {
     marginBottom: "2vh",
     paddingTop: "10px",
     display: "flex",
     justifyContent: "center",
 }
-export const dialogTitleWrapper = {
+export const dialogContentText = {
     display: "flex",
     justifyContent: "center",
 }
+
+export const dialogTitle = {
+    display: "flex",
+    justifyContent: "center",
+    fontWeight: "bold",
+}
+
+export const buttonsContainer = {
+    textAlign: "center"
+}
+
 export const closeButton = {
     backgroundColor: "#DC3535",
     color: "#EFF5F5",
@@ -45,15 +52,8 @@ export const tableWrapper = {
     display: "flex",
     justifyContent: "center",
     height: "400px",
-    width: '55%',
+    width: '51%',
     paddingLeft: "18vw",  
-}
-
-
-export const buttonsWrapper = {
-    display: "flex",
-    justifyContent: "center",
-    margin: "1vw"
 }
 
 export const tableButtons = {

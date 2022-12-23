@@ -16,7 +16,7 @@ const AddNewCategoryContainer = () => {
       onSubmit={(category: CreateUpdateCategoryModel) => {
         dispatch(createCategoryThunkAction(category));
       }}
-      onToggleCreateStatusClick={() =>
+      onToggleCreateStatusAction={() =>
         dispatch(toggleCreateModalStatus(!createModalOpen))
       }
     />

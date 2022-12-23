@@ -4,6 +4,8 @@ import {
   DialogTitle,
   Grid,
   Button,
+  Box,
+  DialogContentText,
 } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import { Formik } from 'formik';
@@ -14,16 +16,19 @@ import { styles } from '../styles';
 interface Props {
   createModalOpen: boolean;
   onSubmit: (values: CreateUpdateCategoryModel) => void;
-  onToggleCreateStatusClick: () => void;
+  onToggleCreateStatusAction: () => void;
 }
 
 const AddNewCategoryComponent = (props: Props) => {
   return (
     <Dialog open={props.createModalOpen}>
-      <div style={styles.dialogTitleWrapper}>
-        <DialogTitle sx={styles.dialogTitle}>Click on the confirmation button to create the category</DialogTitle>
-      </div>
+      <DialogTitle sx = {styles.dialogTitle}>
+          CREATE CATEGORY
+      </DialogTitle>
       <DialogContent>
+        <DialogContentText sx = {styles.dialogContentText}>
+            Click on the confirmation button to create the category
+        </DialogContentText>
         <Formik
           initialValues={{
             name: '',
@@ -36,7 +41,7 @@ const AddNewCategoryComponent = (props: Props) => {
         >
           {(formProps) => (
             <form onSubmit={formProps.handleSubmit}>
-              <div style={styles.fieldsWrapper}>
+              <Box sx={styles.fieldsWrapper}>
                 <TextField
                   id="name"
                   label="Category Name"
@@ -48,8 +53,8 @@ const AddNewCategoryComponent = (props: Props) => {
                   }
                   helperText={formProps.touched.name && formProps.errors.name}
                 />
-              </div>
-              <div style={styles.fieldsWrapper}>
+              </Box>
+              <Box sx={styles.fieldsWrapper}>
                 <TextField
                   id="description"
                   label="Description"
@@ -65,24 +70,20 @@ const AddNewCategoryComponent = (props: Props) => {
                     formProps.errors.description
                   }
                 />
-              </div>
-              <Grid container>
-                <Grid item xs={6}>
-                  <div style={styles.buttonsWrapper}>
+              </Box>
+              <Grid container spacing = {2} sx = {styles.buttonsContainer}>
+                <Grid item xs={6} >
                     <Button
                       sx={styles.closeButton}
-                      onClick={props.onToggleCreateStatusClick}
+                      onClick={props.onToggleCreateStatusAction}
                     >
                       Close
                     </Button>
-                  </div>
                 </Grid>
                 <Grid item xs={6}>
-                  <div style={styles.buttonsWrapper}>
                     <Button type={'submit'} sx ={styles.confirmButton}>
                       Confirm
                     </Button>
-                  </div>
                 </Grid>
               </Grid>
             </form>

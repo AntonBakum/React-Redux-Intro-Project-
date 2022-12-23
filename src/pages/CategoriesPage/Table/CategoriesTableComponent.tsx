@@ -1,10 +1,11 @@
-import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import { DataGrid, GridCellParams, GridColDef } from '@mui/x-data-grid';
 import { CategoryModel } from '../../../models/categories/CategoryModel';
 import { styles } from '../styles';
 
 interface Props {
   categories: CategoryModel[];
-  categoryTableColumns: GridColDef[]
+  categoryTableColumns: GridColDef[],
+  onCellClick: (params: GridCellParams) => void
 }
 
 const CategoriesTableComponent = (props: Props) => {
@@ -15,6 +16,7 @@ const CategoriesTableComponent = (props: Props) => {
         rows={props.categories}
         pageSize={5}
         sx = {{fontSize: "16px"}}
+        onCellClick = {props.onCellClick}
       />
     </div>
   );

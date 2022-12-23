@@ -1,4 +1,6 @@
+import { ParaglidingSharp } from "@mui/icons-material";
 import { GridColDef } from "@mui/x-data-grid";
+import { CategoryModel } from "../models/categories/CategoryModel";
 import DeleteCategoryColumnContainer from "../pages/CategoriesPage/Table/DeleteCategoryColumn/DeleteCategoryColumnContainer";
 import UpdateCategoryColumnContainer from "../pages/CategoriesPage/Table/UpdateCategoryColumn/UpdateCategoryColumnContainer";
 
@@ -8,17 +10,17 @@ export const categoryTableColumns: GridColDef[] = [
     { field: 'description', headerName: 'Description', width: 300 },
     {
       field: 'Edit',
-      renderCell: (category) => {
+      renderCell: () => {
         return (
-          <UpdateCategoryColumnContainer category={category}/>
+          <UpdateCategoryColumnContainer/>
         );
       },
     },
     {
       field: 'Delete',
-      renderCell: (category) => {
+      renderCell: () => {
         return (
-           <DeleteCategoryColumnContainer id = {category.row.id}/>
+           <DeleteCategoryColumnContainer/>
         );
       },
     },

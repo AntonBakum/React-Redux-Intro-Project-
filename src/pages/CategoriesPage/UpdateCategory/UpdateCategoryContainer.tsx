@@ -1,14 +1,13 @@
 import { updateCategoryThunkAction } from '../../../actions/categories/updateCategoryThunkAction';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import { RootState } from '../../../app/store';
+import { CategoryModel } from '../../../models/categories/CategoryModel';
 import { CreateUpdateCategoryModel } from '../../../models/categories/CreateCategoryModel';
 import { toggleUpdateModalStatus } from '../../../slices/modalWindowSlice';
 import UpdateCategoryComponent from './UpdateCategoryComponent';
 
 interface Props {
-    id: number,
-    name: string,
-    description: string,
+    category: CategoryModel
     
 }
 
@@ -19,7 +18,7 @@ const UpdateCategoryContainer = (props: Props) => {
   );
   const onSubmit = (category: CreateUpdateCategoryModel) => {
      const updatedCategory = {
-        id: props.id,
+        id: props.category.id,
         updatedCategory: category
      }
      dispatch(updateCategoryThunkAction(updatedCategory))
@@ -27,12 +26,12 @@ const UpdateCategoryContainer = (props: Props) => {
   return (
     <UpdateCategoryComponent
       updateModalOpen={updateModalOpen}
-      onToggleUpdateStatusClick={() => {
+      onToggleUpdateStatusAction={() => {
         dispatch(toggleUpdateModalStatus(!updateModalOpen));
       }}
       onSubmit = {onSubmit}
-      name = {props.name}
-      description = {props.description}
+      name = {props.category.name}
+      description = {props.category.description}
     />
   );
 };

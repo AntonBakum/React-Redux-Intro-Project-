@@ -4,6 +4,8 @@ import {
   DialogTitle,
   Grid,
   Button,
+  DialogContentText,
+  Box,
 } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import { Formik } from 'formik';
@@ -13,7 +15,7 @@ import { styles } from '../styles';
 
 interface Props {
   updateModalOpen: boolean;
-  onToggleUpdateStatusClick: () => void;
+  onToggleUpdateStatusAction: () => void;
   onSubmit: (values: CreateUpdateCategoryModel) => void;
   name: string;
   description: string;
@@ -22,12 +24,11 @@ interface Props {
 const UpdateCategoryComponent = (props: Props) => {
   return (
     <Dialog open={props.updateModalOpen}>
-      <div style={styles.dialogTitleWrapper}>
-        <DialogTitle sx={styles.dialogTitle}>
-          Click on the confirmation button to update the category
-        </DialogTitle>
-      </div>
+      <DialogTitle sx={styles.dialogTitle}>UPDATE CATEGORY</DialogTitle>
       <DialogContent>
+        <DialogContentText sx={styles.dialogContentText}>
+          Click on the confirmation button to update the category
+        </DialogContentText>
         <Formik
           initialValues={{
             name: props.name,
@@ -40,7 +41,7 @@ const UpdateCategoryComponent = (props: Props) => {
         >
           {(formProps) => (
             <form onSubmit={formProps.handleSubmit}>
-              <div style={styles.fieldsWrapper}>
+              <Box sx ={styles.fieldsWrapper}>
                 <TextField
                   id="name"
                   label="Category Name"
@@ -52,8 +53,8 @@ const UpdateCategoryComponent = (props: Props) => {
                   }
                   helperText={formProps.touched.name && formProps.errors.name}
                 />
-              </div>
-              <div style={styles.fieldsWrapper}>
+              </Box>
+              <Box sx ={styles.fieldsWrapper}>
                 <TextField
                   id="description"
                   label="Description"
@@ -69,24 +70,20 @@ const UpdateCategoryComponent = (props: Props) => {
                     formProps.errors.description
                   }
                 />
-              </div>
-              <Grid container>
+              </Box>
+              <Grid container spacing = {2} sx = {styles.buttonsContainer}>
                 <Grid item xs={6}>
-                  <div style={styles.buttonsWrapper}>
                     <Button
                       sx={styles.closeButton}
-                      onClick={props.onToggleUpdateStatusClick}
+                      onClick={props.onToggleUpdateStatusAction}
                     >
                       Cancel
                     </Button>
-                  </div>
                 </Grid>
                 <Grid item xs={6}>
-                  <div style={styles.buttonsWrapper}>
-                    <Button type={'submit'} sx ={styles.confirmButton}>
+                    <Button type={'submit'} sx={styles.confirmButton}>
                       Confirm
                     </Button>
-                  </div>
                 </Grid>
               </Grid>
             </form>
