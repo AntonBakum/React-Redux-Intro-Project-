@@ -1,5 +1,5 @@
 import { Delete } from '@mui/icons-material';
-import { Button } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { styles } from '../../styles';
 
 interface Props {
@@ -8,14 +8,14 @@ interface Props {
 
 const DeleteCategoryColumnComponent = (props: Props) => {
   return (
-    <div>
+    <Box>
       <Button
         sx={styles.tableButtons}
         onClick={props.onToggleDeleteStatusClick}
       >
         <Delete />
       </Button>
-    </div>
+    </Box>
   );
 };
 
