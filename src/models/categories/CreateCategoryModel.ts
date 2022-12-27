@@ -1,5 +1,5 @@
 
-export interface CreateCategoryModel 
+export interface CreateUpdateCategoryModel 
 {
     name: string;
     description: string;

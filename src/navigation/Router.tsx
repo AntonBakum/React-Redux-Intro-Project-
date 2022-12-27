@@ -1,12 +1,8 @@
 import MainLayout from '../components/MainLayout';
 import WelcomePage from '../pages/WelcomePage';
-import {
-  createBrowserRouter,
-  Route,
-  createRoutesFromElements,
-} from 'react-router-dom';
 import { ProductsPageContainer } from '../pages/ProductsPage';
 import CategoriesPageComponent from '../pages/CategoriesPage/CategoriesPageComponent';
+import { createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(

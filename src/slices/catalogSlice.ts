@@ -6,6 +6,7 @@ import { CategoryProductModel } from '../models/CategoryProductModel';
 import { deleteCategoryThunkAction } from '../actions/categories/deleteCategoryThunkAction';
 import { getCategoriesThunkAction } from '../actions/categories/getCategoriesThunkAction';
 import { createCategoryThunkAction } from '../actions/categories/createCategoryThunkAction';
+import { updateCategoryThunkAction } from '../actions/categories/updateCategoryThunkAction';
 
 export interface State {
   products: {
@@ -70,6 +71,13 @@ export const catalogSlice = createSlice({
          const categoryId = action.payload;
          delete state.categories[categoryId];
          state.categoryIds = state.categoryIds.filter((id) => id !== categoryId);
+      }
+    )
+    .addCase(
+      updateCategoryThunkAction.fulfilled,
+      (state, action: PayloadAction<CategoryModel>) => {
+        const category = action.payload;
+        Object.assign(state.categories[category.id], category);
       }
     )
   },

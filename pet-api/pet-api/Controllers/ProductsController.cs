@@ -6,7 +6,7 @@ using pet_api.Controllers.Models;
 
 namespace pet_api.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase
     {

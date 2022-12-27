@@ -1,4 +1,4 @@
-import { Add, Delete, GetApp, Update } from '@mui/icons-material';
+import { Add, GetApp } from '@mui/icons-material';
 import { Button } from '@mui/material';
 import { styles } from './styles';
 
@@ -26,17 +26,6 @@ const NavigationButtonsComponent = (props: Props) => {
         onClick={props.onToggleCreateStatusClick}
       >
         CREATE CATEGORY
-      </Button>
-      <Button sx={styles.updateButton} size="large" startIcon={<Update />}>
-        UPDATE CATEGORY
-      </Button>
-      <Button
-        sx={styles.deleteButton}
-        size="large"
-        startIcon={<Delete />}
-        onClick={props.onToggleDeleteStatusClick}
-      >
-        DELETE CATEGORY
       </Button>
     </div>
   );

@@ -1,8 +1,3 @@
-export const dialogTitle = {
-    display: "flex",
-    justifyContent: "center",
-    fontWeight: "bolder",
-}
 
 export const fieldsWrapper = {
     marginBottom: "2vh",
@@ -10,43 +5,62 @@ export const fieldsWrapper = {
     display: "flex",
     justifyContent: "center",
 }
+export const dialogContentText = {
+    display: "flex",
+    justifyContent: "center",
+}
+
+export const dialogTitle = {
+    display: "flex",
+    justifyContent: "center",
+    fontWeight: "bold",
+}
+
+export const buttonsContainer = {
+    textAlign: "center"
+}
 
 export const closeButton = {
     backgroundColor: "#DC3535",
     color: "#EFF5F5",
-    width: "7.6vw"
+    width: "7.6vw",
+    "&:hover": {
+        backgroundColor: "green"
+      },
 }
 
 export const createButton = {
-    backgroundColor: "#285430",
+    backgroundColor: "black",
     color: "#EFF5F5",
-    width: "7.6vw"
+    width: "7.6vw",
+    "&:hover": {
+        backgroundColor: "green"
+      },
 } 
 
-export const deleteButton = {
-    backgroundColor: "#285430",
+export const confirmButton = {
+    backgroundColor: "black",
     color: "#EFF5F5",
-    width: "7.6vw"
+    width: "7.6vw",
+    "&:hover": {
+        backgroundColor: "green"
+      },
 } 
 
-export const updateButton = {
-    backgroundColor: "#285430",
-    color: "#EFF5F5",
-    width: "7.6vw"
-} 
 
 export const tableWrapper = {
     display: "flex",
     justifyContent: "center",
     height: "400px",
-    width: '41%',
-    paddingLeft: "22vw",  
+    width: '51%',
+    paddingLeft: "18vw",  
 }
 
-
-export const buttonsWrapper = {
-    display: "flex",
-    justifyContent: "center",
+export const tableButtons = {
+    color: 'black',
+    "&:hover": {
+        backgroundColor: "green"
+      },
 }
 
 export * as styles from './styles';

@@ -5,7 +5,7 @@ using pet_api.Domain.Interfaces;
 
 namespace pet_api.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase
     {

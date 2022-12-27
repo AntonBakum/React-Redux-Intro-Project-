@@ -9,26 +9,20 @@ export const buttonsWrapper = {
 export const getButton: SxProps = {
     backgroundColor: "#EF9A53",
     color: "#EFF5F5",
-    marginRight: "1vw"
-}
-
-export const deleteButton: SxProps = {
-    backgroundColor: "#DC3535",
-    color: "#EFF5F5",
-    marginRight: "1vw"
-}
+    marginRight: "1vw",
+    "&:hover": {
+        backgroundColor: "green"
+      },
+} 
 
 export const createButton: SxProps = {
-    backgroundColor: "#285430",
+    backgroundColor: "#D81E5B",
     color: "#EFF5F5",
-    marginRight: "1vw"
+    marginRight: "1vw",
+    "&:hover": {
+        backgroundColor: "green"
+      },
 
-}
-
-export const  updateButton: SxProps = {
-    backgroundColor: "#3B3486",
-    color: "#EFF5F5",
-    marginRight: "1vw"
 }
 
 export * as styles from './styles';

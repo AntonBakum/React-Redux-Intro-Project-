@@ -1,7 +1,7 @@
 import { createCategoryThunkAction } from '../../../actions/categories/createCategoryThunkAction';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import { RootState } from '../../../app/store';
-import { CreateCategoryModel } from '../../../models/categories/CreateCategoryModel';
+import { CreateUpdateCategoryModel } from '../../../models/categories/CreateCategoryModel';
 import { toggleCreateModalStatus } from '../../../slices/modalWindowSlice';
 import AddNewCategoryComponent from './AddNewCategoryComponent';
 
@@ -13,10 +13,10 @@ const AddNewCategoryContainer = () => {
   return (
     <AddNewCategoryComponent
       createModalOpen={createModalOpen}
-      onSubmit={(category: CreateCategoryModel) => {
+      onSubmit={(category: CreateUpdateCategoryModel) => {
         dispatch(createCategoryThunkAction(category));
       }}
-      onToggleCreateStatusClick={() =>
+      onToggleCreateStatusAction={() =>
         dispatch(toggleCreateModalStatus(!createModalOpen))
       }
     />
