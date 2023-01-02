@@ -10,12 +10,14 @@ namespace pet_api.Infrastructure.DAL
         private DbTransaction sqlTransaction;
         private CategoryRepository _categoryRepository;
         private ProductRepository _productRepository;
+        private readonly IConfiguration _configuration;
         private bool disposedValue;
 
-        public UnitOfWork(IDatabaseContext context)
+        public UnitOfWork(IDatabaseContext context, IConfiguration configuration)
         {
             _context = context;
             _context.SqlConnection.Open();
+            _configuration = configuration;
         }
         public CategoryRepository CategoryRepository
         {
@@ -34,7 +36,7 @@ namespace pet_api.Infrastructure.DAL
             {
                 if (this._productRepository == null)
                 {
-                    this._productRepository = new ProductRepository(_context.SqlConnection, sqlTransaction);
+                    this._productRepository = new ProductRepository(_context.SqlConnection, sqlTransaction, _configuration);
                 }
                 return _productRepository;
             }

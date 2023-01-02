@@ -8,8 +8,6 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import HomeIcon from "@mui/icons-material/Home";
-import AdbIcon from "@mui/icons-material/Adb";
 import sidebarStyle from "../../../styles/sidebarStyle";
 import { sideBarItems } from "../../../constants/sidebarItems";
 import { DrawerHeader } from "./SidebarHeader";
@@ -49,7 +47,6 @@ const SidebarComponent = (props: Props) => {
               }}
             >
               <ListItemIcon>
-                {item.id === 1 ? <HomeIcon /> : <AdbIcon />}
               </ListItemIcon>
               <ListItemText primary={item.title} />
             </ListItemButton>

@@ -4,23 +4,17 @@ export const buttonsWrapper = {
     display: "flex",
     justifyContent: "center",
     margin: "5vh",
-    paddingRight: "10vw",
+    paddingRight: "8vw",
 }
-export const getButton: SxProps = {
-    backgroundColor: "#EF9A53",
-    color: "#EFF5F5",
-    marginRight: "1vw",
-    "&:hover": {
-        backgroundColor: "green"
-      },
-} 
 
 export const createButton: SxProps = {
     backgroundColor: "#D81E5B",
     color: "#EFF5F5",
     marginRight: "1vw",
     "&:hover": {
-        backgroundColor: "green"
+        color: "#D81E5B",
+        backgroundColor: "white",
+        border: "3px solid #D81E5B"
       },
 
 }

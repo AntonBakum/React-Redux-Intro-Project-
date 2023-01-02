@@ -6,6 +6,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Badge from '@mui/material/Badge';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { drawerWidth } from '../../../styles/sidebarStyle';
+import { theme } from '../../../theme';
 
 interface Props {
   isOpened: boolean;
@@ -20,6 +21,10 @@ const HeaderComponent = (props: Props) => {
         ...(props.isOpened && {
           width: `calc(100% - ${drawerWidth}px)`,
           marginLeft: `${drawerWidth}px`,
+          transition: theme.transitions.create(['margin', 'width'], {
+            easing: theme.transitions.easing.easeOut,
+            duration: theme.transitions.duration.enteringScreen,
+          }),
         }),
       }}
     >

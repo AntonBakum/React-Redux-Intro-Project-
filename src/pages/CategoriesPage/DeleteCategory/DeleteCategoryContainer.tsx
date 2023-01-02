@@ -1,6 +1,7 @@
 import { deleteCategoryThunkAction } from '../../../actions/categories/deleteCategoryThunkAction';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import { RootState } from '../../../app/store';
+import { changeStatus } from '../../../slices/catalog/categoriesSlice';
 import { toggleDeleteModalStatus } from '../../../slices/modalWindowSlice';
 import DeleteCategoryComponent from './DeleteCategoryComponent';
 
@@ -21,6 +22,7 @@ const DeleteCategoryContainer = (props: Props) => {
       }}
       onSubmit={() => {
         dispatch(deleteCategoryThunkAction(props.id));
+        dispatch(changeStatus('pending'));
       }}
     />
   );
