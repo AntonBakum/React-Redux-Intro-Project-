@@ -10,7 +10,6 @@ namespace pet_api.Infrastructure.DAL
         private DbTransaction sqlTransaction;
         private CategoryRepository _categoryRepository;
         private ProductRepository _productRepository;
-        
         private bool disposedValue;
 
         public UnitOfWork(IDatabaseContext context)

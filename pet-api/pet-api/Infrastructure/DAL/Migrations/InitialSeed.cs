@@ -6,12 +6,6 @@ namespace pet_api.Infrastructure.DAL.Migrations
     [Migration(2)]
     public class InitialSeed : Migration
     {
-        private readonly IConfiguration _configuration;
-
-        public InitialSeed(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
         public override void Down()
         {
         }

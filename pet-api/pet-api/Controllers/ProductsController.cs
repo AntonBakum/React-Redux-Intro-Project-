@@ -3,7 +3,7 @@ using pet_api.Domain.Entities.Pagination;
 using pet_api.Domain.Entities;
 using pet_api.Domain.Interfaces;
 using pet_api.Controllers.Models;
-using pet_api.Infrastructure.Services;
+using pet_api.Controllers.DTOs;
 
 namespace pet_api.Controllers
 {
@@ -12,12 +12,12 @@ namespace pet_api.Controllers
     public class ProductsController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IConfiguration _configuration;
+        private readonly IProductMapper _productMapper;
 
-        public ProductsController(IUnitOfWork unitOfWork, IConfiguration configuration)
+        public ProductsController(IUnitOfWork unitOfWork, IProductMapper productMapper)
         {
             _unitOfWork = unitOfWork;
-            _configuration = configuration; 
+            _productMapper = productMapper;
         }
 
         [HttpGet("{id:int}")]
@@ -33,12 +33,12 @@ namespace pet_api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProducts([FromQuery] ProductParameters productParameters)
+        public async Task<ActionResult<IEnumerable<ProductDTO>>> GetProducts([FromQuery] ProductParameters productParameters)
         {
             await _unitOfWork.BeginTransaction();
             IEnumerable<Product> products = await _unitOfWork.ProductRepository.GetByPage(productParameters);
-            products = products.BuildURL(_configuration);
-            return Ok(products);
+            var productDTOs = products.Select(_productMapper.MapToProductDTO);
+            return Ok(productDTOs);
         }
 
         [HttpPost]
