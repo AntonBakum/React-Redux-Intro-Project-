@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 import { DataGrid, GridCellParams, GridColDef } from '@mui/x-data-grid';
 import { CategoryModel } from '../../../models/categories/CategoryModel';
 import { styles } from '../styles';
@@ -10,7 +11,7 @@ interface Props {
 
 const CategoriesTableComponent = (props: Props) => {
   return (
-    <div style={styles.tableWrapper}>
+    <Box sx ={styles.tableWrapper}>
       <DataGrid
         columns={props.categoryTableColumns}
         rows={props.categories}
@@ -18,7 +19,7 @@ const CategoriesTableComponent = (props: Props) => {
         sx = {{fontSize: "16px"}}
         onCellClick = {props.onCellClick}
       />
-    </div>
+    </Box>
   );
 };
 

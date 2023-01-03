@@ -1,30 +1,30 @@
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { getProductsThunkAction } from '../../actions/getProductsThunkAction';
-import ProductsPageComponent from './ProductsPageComponent';
 import { useEffect, useState } from 'react';
+import { getCategoriesThunkAction } from '../../actions/categories/getCategoriesThunkAction';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { RootState } from '../../app/store';
 import { changeStatus } from '../../slices/catalog/categoriesSlice';
+import CategoriesPageComponent from './CategoriesPageComponent';
 
-export const ProductsPageContainer = () => {
-  const dispatch = useAppDispatch();
+const CategoriesPageContainer = () => {
   const [successOpen, setSuccessOpen] = useState(false);
   const [failureOpen, setFailureOpen] = useState(false);
   const [backdropOpen, setBackdropOpen] = useState(true);
-  const status = useAppSelector((state: RootState) => state.products.status);
+  const status = useAppSelector((state: RootState) => state.categories.status);
+  const dispatch = useAppDispatch();
   useEffect(() => {
     if (status === 'fulfilled') {
-      setSuccessOpen(true);
+      setSuccessOpen(true)
       setBackdropOpen(false);
     } else if (status === 'rejected') {
       setFailureOpen(true);
       setTimeout(() => {
-        dispatch(getProductsThunkAction());
+        dispatch(getCategoriesThunkAction());
       }, 5000);
     }
-    dispatch(getProductsThunkAction());
+    dispatch(getCategoriesThunkAction())
   }, [dispatch, status]);
   return (
-    <ProductsPageComponent
+    <CategoriesPageComponent
       successOpen={successOpen}
       handleSuccessClick={() => {
         setSuccessOpen(false);
@@ -32,9 +32,11 @@ export const ProductsPageContainer = () => {
       failureOpen={failureOpen}
       handleFailureClick={() => {
         setFailureOpen(false);
-        dispatch(changeStatus('pending'));
+        dispatch(changeStatus('pending'))
       }}
-      backdropOpen={backdropOpen}
+      backdropOpen = {backdropOpen}
     />
   );
 };
+
+export default CategoriesPageContainer;

@@ -17,7 +17,7 @@ import {
   Description,
 } from '@mui/icons-material';
 import { ProductModel } from '../../../models/ProductModel';
-import { styles } from './styles';
+import { styles } from '../styles';
 
 interface Props {
   product: ProductModel;
@@ -31,7 +31,7 @@ const ProductCardComponent = (props: Props) => {
         <CardMedia
           component="img"
           alt={props.product.name}
-          height="200"
+          height="310"
           image={props.product.image}
         />
         <Grid container sx={styles.cardMediaChildContainer}>
@@ -73,7 +73,7 @@ const ProductCardComponent = (props: Props) => {
         <Box display="flex" justifyContent="flex-end" sx={styles.productDate}>
           {props.product.dateOfCreation}
         </Box>
-        <Grid container>
+        <Grid container sx={styles.descriptionContainer}>
           <Grid item xs={12}>
             <Typography
               gutterBottom
@@ -83,7 +83,9 @@ const ProductCardComponent = (props: Props) => {
               Description:
             </Typography>
           </Grid>
-          <Typography variant="body1">{props.product.description}</Typography>
+          <Grid item xs={12}>
+            <Typography variant="body1">{props.product.description}</Typography>
+          </Grid>
         </Grid>
       </CardContent>
       <CardActions>

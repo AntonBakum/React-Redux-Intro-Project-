@@ -1,7 +1,8 @@
 import { SxProps } from '@mui/material';
 
 export const mainCardStyle: SxProps = {
-  maxWidth: 400,
+  maxWidth: '28vw',
+  height: '75vh',
 };
 
 export const cardMediaContainer: SxProps = {
@@ -59,20 +60,28 @@ export const productDescriptionHeader: SxProps = {
 };
 
 export const addToCartButton: SxProps = {
-  backgroundColor: 'secondary.main',
-  color: 'white',
-  width: '170px',
+  width: '185px',
+  backgroundColor: '#D81E5B',
+  color: '#EFF5F5',
+  marginRight: '1vw',
   '&:hover': {
-    backgroundColor: 'green',
+    color: '#D81E5B',
+    backgroundColor: 'white',
+    border: '3px solid #D81E5B',
   },
 };
-
+export const descriptionContainer: SxProps = {
+  height: 100,
+};
 export const descriptionButton: SxProps = {
-  backgroundColor: 'info.main',
-  color: 'white',
-  width: '170px',
+  width: '185px',
+  backgroundColor: 'black',
+  color: '#EFF5F5',
+  marginRight: '1vw',
   '&:hover': {
-    backgroundColor: 'green',
+    color: 'black',
+    backgroundColor: 'white',
+    border: '3px solid black',
   },
 };
 
@@ -80,4 +89,8 @@ export const descriptionButtonItem: SxProps = {
   textAlign: 'end',
 };
 
+
+export const productsListWrapper: SxProps = {
+  marginTop: '3vh',
+};
 export * as styles from './styles';
