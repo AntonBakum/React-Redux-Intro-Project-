@@ -13,13 +13,11 @@ namespace pet_api.Infrastructure.DAL.Repositories
     {
         private readonly SqlConnection _connection;
         private readonly DbTransaction _transaction;
-        private readonly IConfiguration _configuration;
 
-        public ProductRepository(SqlConnection connection, DbTransaction transaction, IConfiguration configuration)
+        public ProductRepository(SqlConnection connection, DbTransaction transaction)
         {
             _connection = connection;
             _transaction = transaction;
-            _configuration = configuration;
         }
 
         public async Task<int> Create(ProductModel entity)
@@ -36,7 +34,7 @@ namespace pet_api.Infrastructure.DAL.Repositories
         }
         private async Task SetProductImage(ProductModel entity, int id)
         {
-            string imagePath = $"{_configuration["URL"]}//Products/{id}-{entity.Name}.png";
+            string imagePath = $"{id}-{entity.Name}.png";
             string sqlQuery = "UPDATE Products SET Image = @Image WHERE Id = @Id";
             var parameters = new DynamicParameters();
             parameters.Add("@Image", imagePath);

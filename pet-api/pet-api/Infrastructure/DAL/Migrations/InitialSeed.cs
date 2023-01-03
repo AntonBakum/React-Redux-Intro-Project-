@@ -24,7 +24,7 @@ namespace pet_api.Infrastructure.DAL.Migrations
                     Name = "Apples",
                     Description = "The best Ukrainian apples from the Vinnitsa region",
                     Price = 9,
-                    Image = $"{_configuration["URL"]}//Products/1-apple.png",
+                    Image = "1-apple.png",
                     DateOfCreation = DateTime.Now
                 });
 
@@ -34,7 +34,7 @@ namespace pet_api.Infrastructure.DAL.Migrations
                     Name = "Oranges",
                     Description = "The best Geogrian oranges from the sunny city of Batumi",
                     Price = 49,
-                    Image = $"{_configuration["URL"]}//Products/2-orange.png",
+                    Image = "2-orange.png",
                     DateOfCreation = DateTime.Now
                 });
 
@@ -44,7 +44,7 @@ namespace pet_api.Infrastructure.DAL.Migrations
                     Name = "Pineapples",
                     Description = "The best Southamerican pineapples",
                     Price = 160,
-                    Image = $"{_configuration["URL"]}//Products/3-pineapple.png",
+                    Image = "3-pineapple.png",
                     DateOfCreation = DateTime.Now
                 });
 
@@ -54,7 +54,7 @@ namespace pet_api.Infrastructure.DAL.Migrations
                    Name = "Qiwi",
                    Description = "The best Italian subtropical qiwi",
                    Price = 140,
-                   Image = $"{_configuration["URL"]}//Products/4-qiwi.png",
+                   Image = "4-qiwi.png",
                    DateOfCreation = DateTime.Now
                });
 

@@ -3,6 +3,7 @@ using pet_api.Domain.Entities.Pagination;
 using pet_api.Domain.Entities;
 using pet_api.Domain.Interfaces;
 using pet_api.Controllers.Models;
+using pet_api.Infrastructure.Services;
 
 namespace pet_api.Controllers
 {
@@ -11,10 +12,12 @@ namespace pet_api.Controllers
     public class ProductsController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IConfiguration _configuration;
 
-        public ProductsController(IUnitOfWork unitOfWork)
+        public ProductsController(IUnitOfWork unitOfWork, IConfiguration configuration)
         {
             _unitOfWork = unitOfWork;
+            _configuration = configuration; 
         }
 
         [HttpGet("{id:int}")]
@@ -34,6 +37,7 @@ namespace pet_api.Controllers
         {
             await _unitOfWork.BeginTransaction();
             IEnumerable<Product> products = await _unitOfWork.ProductRepository.GetByPage(productParameters);
+            products = products.BuildURL(_configuration);
             return Ok(products);
         }
 
