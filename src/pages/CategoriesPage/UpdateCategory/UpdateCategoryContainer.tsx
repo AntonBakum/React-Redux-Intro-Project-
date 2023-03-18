@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import { RootState } from '../../../app/store';
 import { CategoryModel } from '../../../models/categories/CategoryModel';
 import { CreateUpdateCategoryModel } from '../../../models/categories/CreateCategoryModel';
+import { changeStatus } from '../../../slices/catalog/categoriesSlice';
 import { toggleUpdateModalStatus } from '../../../slices/modalWindowSlice';
 import UpdateCategoryComponent from './UpdateCategoryComponent';
 
@@ -22,6 +23,7 @@ const UpdateCategoryContainer = (props: Props) => {
         updatedCategory: category
      }
      dispatch(updateCategoryThunkAction(updatedCategory))
+     dispatch(changeStatus('pending'));
   }
   return (
     <UpdateCategoryComponent

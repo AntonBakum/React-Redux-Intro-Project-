@@ -1,5 +1,5 @@
 ﻿using FluentMigrator;
-using System.Collections.Generic;
+
 
 namespace pet_api.Infrastructure.DAL.Migrations
 {
@@ -18,7 +18,7 @@ namespace pet_api.Infrastructure.DAL.Migrations
                     Name = "Apples",
                     Description = "The best Ukrainian apples from the Vinnitsa region",
                     Price = 9,
-                    Image = "1/apple.png",
+                    Image = "1-apple.png",
                     DateOfCreation = DateTime.Now
                 });
 
@@ -28,16 +28,36 @@ namespace pet_api.Infrastructure.DAL.Migrations
                     Name = "Oranges",
                     Description = "The best Geogrian oranges from the sunny city of Batumi",
                     Price = 49,
-                    Image = "2/orange.png",
+                    Image = "2-orange.png",
                     DateOfCreation = DateTime.Now
                 });
+
+            Insert.IntoTable("Products")
+                .Row(new
+                {
+                    Name = "Pineapples",
+                    Description = "The best Southamerican pineapples",
+                    Price = 160,
+                    Image = "3-pineapple.png",
+                    DateOfCreation = DateTime.Now
+                });
+
+            Insert.IntoTable("Products")
+               .Row(new
+               {
+                   Name = "Qiwi",
+                   Description = "The best Italian subtropical qiwi",
+                   Price = 140,
+                   Image = "4-qiwi.png",
+                   DateOfCreation = DateTime.Now
+               });
 
             Insert.IntoTable("ProductFeedbacks")
                 .Row(new
                 {
                     Content = "This is the best apples in my life, it`s very tasty!",
                     ProductId = 1,
-                    DateOfPublication = DateTime.Now,
+                    DateOfPublication = DateTime.Now
                 });
 
             Insert.IntoTable("ProductFeedbacks")

@@ -21,30 +21,30 @@ export const buttonsContainer = {
 }
 
 export const closeButton = {
-    backgroundColor: "#DC3535",
-    color: "#EFF5F5",
     width: "7.6vw",
+    backgroundColor: "#D81E5B",
+    color: "#EFF5F5",
+    marginRight: "1vw",
     "&:hover": {
-        backgroundColor: "green"
+        color: "#D81E5B",
+        backgroundColor: "white",
+        border: "3px solid #D81E5B"
       },
-}
 
-export const createButton = {
-    backgroundColor: "black",
-    color: "#EFF5F5",
-    width: "7.6vw",
-    "&:hover": {
-        backgroundColor: "green"
-      },
-} 
+    
+}
 
 export const confirmButton = {
     backgroundColor: "black",
     color: "#EFF5F5",
     width: "7.6vw",
+    marginRight: "1vw",
     "&:hover": {
-        backgroundColor: "green"
+        color: "black",
+        backgroundColor: "white",
+        border: "3px solid black"
       },
+
 } 
 
 
@@ -52,14 +52,15 @@ export const tableWrapper = {
     display: "flex",
     justifyContent: "center",
     height: "400px",
-    width: '51%',
-    paddingLeft: "18vw",  
+    width: '55%',
+    paddingLeft: "17vw", 
+    marginTop: "3vh" 
 }
 
 export const tableButtons = {
     color: 'black',
     "&:hover": {
-        backgroundColor: "green"
+        border: "3px solid black"
       },
 }
 

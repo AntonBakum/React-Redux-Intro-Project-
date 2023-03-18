@@ -20,7 +20,7 @@ namespace pet_api.Infrastructure.DAL.Migrations
                .WithColumn("Name").AsString(50).NotNullable().Unique()
                .WithColumn("Description").AsString(300).NotNullable()
                .WithColumn("Price").AsDecimal().NotNullable()
-               .WithColumn("Image").AsString(100).NotNullable()
+               .WithColumn("Image").AsString(100).Nullable()
                .WithColumn("DateOfCreation").AsDateTime().NotNullable();
 
             Create.Table("Categories")

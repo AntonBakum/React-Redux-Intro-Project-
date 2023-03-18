@@ -10,7 +10,7 @@ import CategoriesTableComponent from './CategoriesTableComponent';
 
 const CategoriesTableContainer = () => {
   const categories: CategoryModel[] = useAppSelector((state: RootState) =>
-    state.catalog.categoryIds.map((id) => state.catalog.categories[id]),
+    state.categories.categoryIds.map((id) => state.categories.categories[id])
   );
   const [category, selectedCategory] = useState({} as CategoryModel);
   const [categoryId, selectedCategoryId] = useState(0);
